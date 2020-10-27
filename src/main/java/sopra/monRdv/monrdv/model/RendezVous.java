@@ -1,12 +1,15 @@
 package sopra.monRdv.monrdv.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -16,8 +19,6 @@ import javax.persistence.Version;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonView;
-
-import sopra.monRdv.monrdv.model.Views;
 
 @Entity
 @Table
@@ -44,9 +45,9 @@ public class RendezVous {
 	@JsonView(Views.ViewCommon.class)
 	private Statut statut;
 	
-	@OneToOne (mappedBy = "patient_id")
-	@JsonView(Views.ViewCommon.class)
-	private Patient patient;
+	@OneToMany(mappedBy = "rendezVous")
+	@JsonView(Views.ViewRendezVousDetail.class)
+	private List<Patient> patients = new ArrayList<Patient>();
 	
 	@OneToOne (mappedBy = "praticien_id")
 	@JsonView(Views.ViewCommon.class)
@@ -56,15 +57,24 @@ public class RendezVous {
 	@JsonView(Views.ViewCommon.class)
 	private MotifsConsultations motifsConsultations; 
 	
-	@OneToOne (mappedBy = "creneauHoraire_id")
-	@JsonView(Views.ViewCommon.class)
-	private CreneauHoraire creneauHoraire; 
-
+	@OneToMany(mappedBy = "rendezVous")
+	@JsonView(Views.ViewRendezVousDetail.class)
+	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>();
 	
 	public RendezVous() {
 		super();
 	}
 	
+
+	public List<CreneauHoraire> getCreneaux() {
+		return creneaux;
+	}
+
+
+	public void setCreneaux(List<CreneauHoraire> creneaux) {
+		this.creneaux = creneaux;
+	}
+
 
 	public Long getId() {
 		return id;
@@ -106,14 +116,6 @@ public class RendezVous {
 		this.statut = statut;
 	}
 
-	public Patient getPatient() {
-		return patient;
-	}
-
-	public void setPatient(Patient patient) {
-		this.patient = patient;
-	}
-
 	public Praticien getPraticien() {
 		return praticien;
 	}
@@ -130,12 +132,5 @@ public class RendezVous {
 		this.motifsConsultations = motifsConsultations;
 	}
 
-	public CreneauHoraire getCreneauHoraire() {
-		return creneauHoraire;
-	}
-
-	public void setCreneauHoraire(CreneauHoraire creneauHoraire) {
-		this.creneauHoraire = creneauHoraire;
-	} 
-			
+	
 }

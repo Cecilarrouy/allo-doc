@@ -1,9 +1,13 @@
 package sopra.monRdv.monrdv.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -22,7 +26,10 @@ public class LieuDeConsultation {
 	@JsonView(Views.ViewCommon.class)
 	private Adresse adresse; 
 	
-	private Praticien praticien; 
+	@OneToMany(mappedBy = "lieu")
+	@JsonView(Views.ViewLieuDeConsultation.class)
+	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>(); 
+
 
 
 	
@@ -32,13 +39,13 @@ public class LieuDeConsultation {
 	
 	
 	
-	public LieuDeConsultation(Long id, int version, String nom, Adresse adresse, Praticien praticien) {
+	public LieuDeConsultation(Long id, int version, String nom, Adresse adresse) {
 		super();
 		this.id = id;
 		this.version = version;
 		this.nom = nom;
 		this.adresse = adresse;
-		this.praticien = praticien;
+		
 	}
 
 
@@ -77,13 +84,6 @@ public class LieuDeConsultation {
 	}
 
 
-	public Praticien getPraticien() {
-		return praticien;
-	}
 
-
-	public void setPraticien(Praticien praticien) {
-		this.praticien = praticien;
-	}
 	
 }

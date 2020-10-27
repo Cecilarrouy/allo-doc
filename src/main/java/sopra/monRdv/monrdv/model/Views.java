@@ -16,6 +16,11 @@ public class Views {
 	
 	public static class ViewRendezVous extends ViewCommon {}
 	
+	public static class ViewRendezVousDetail extends ViewRendezVous {}
+	
+	
+	
+	
 	public static class ViewUtilisateur extends ViewCommon {}
 	
 }
