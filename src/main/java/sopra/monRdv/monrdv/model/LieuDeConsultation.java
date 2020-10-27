@@ -1,13 +1,29 @@
 package sopra.monRdv.monrdv.model;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+@Entity
 public class LieuDeConsultation {
 
+	@Id
+	@GeneratedValue
 	private Long id; 
+	@Version
 	private int version; 
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@Embedded
+	@JsonView(Views.ViewCommon.class)
 	private Adresse adresse; 
 	
 	private Praticien praticien; 
+
 
 	
 	public LieuDeConsultation() {
@@ -15,6 +31,18 @@ public class LieuDeConsultation {
 	}
 	
 	
+	
+	public LieuDeConsultation(Long id, int version, String nom, Adresse adresse, Praticien praticien) {
+		super();
+		this.id = id;
+		this.version = version;
+		this.nom = nom;
+		this.adresse = adresse;
+		this.praticien = praticien;
+	}
+
+
+
 	public Long getId() {
 		return id;
 	}

@@ -1,7 +1,17 @@
 package sopra.monRdv.monrdv.model;
 
-public class Administrateur {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+@Entity
+public class Administrateur extends Personne {
+
+	@Id
+	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 
 
@@ -18,6 +28,13 @@ public class Administrateur {
 		this.id = id;
 	} 
 	
+	
+	// toString
+
+	@Override
+	public String toString() {
+		return "Administrateur [id=" + id + "]";
+	}
 	
 	
 	

@@ -1,17 +1,17 @@
 package sopra.monRdv.monrdv.model;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class CreneauHoraire {
@@ -22,17 +22,44 @@ public class CreneauHoraire {
 	@Version
 	private int version; 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "startdate")
 	private Date dtDebut;
 	
-	private List<RendezVous> rdvs = new ArrayList<RendezVous>(); 
-	private List<Praticien> praticiens = new ArrayList<Praticien>(); 
-	private List<LieuDeConsultation> lieux = new ArrayList<LieuDeConsultation>();
+	@ManyToOne
+	@JoinColumn(name = "rdv_id")
+	@JsonView(Views.ViewRendezVous.class)
+	private RendezVous rdv;
+	@ManyToOne
+	@JoinColumn(name = "praticien_id")
+	@JsonView(Views.ViewPraticien.class)
+	private Praticien praticien;
+	@ManyToOne
+	@JoinColumn(name = "lieu_id")
+	@JsonView(Views.ViewPraticien.class)
+	private LieuDeConsultation lieu;
 
 	
 	public CreneauHoraire() {
 		super();
 	}
+
+	
+
+
+	public CreneauHoraire(Long id, int version, Date dtDebut, RendezVous rdv, Praticien praticien,
+			LieuDeConsultation lieu) {
+		super();
+		this.id = id;
+		this.version = version;
+		this.dtDebut = dtDebut;
+		this.rdv = rdv;
+		this.praticien = praticien;
+		this.lieu = lieu;
+	}
+
+
+
+
+
 
 
 	public Long getId() {
@@ -65,33 +92,48 @@ public class CreneauHoraire {
 	}
 
 
-	public List<RendezVous> getRdvs() {
-		return rdvs;
+
+
+	public RendezVous getRdv() {
+		return rdv;
 	}
 
 
-	public void setRdvs(List<RendezVous> rdvs) {
-		this.rdvs = rdvs;
+
+
+	public void setRdv(RendezVous rdv) {
+		this.rdv = rdv;
 	}
 
 
-	public List<Praticien> getPraticiens() {
-		return praticiens;
+
+
+	public Praticien getPraticien() {
+		return praticien;
 	}
 
 
-	public void setPraticiens(List<Praticien> praticiens) {
-		this.praticiens = praticiens;
+
+
+	public void setPraticien(Praticien praticien) {
+		this.praticien = praticien;
 	}
 
 
-	public List<LieuDeConsultation> getLieux() {
-		return lieux;
+
+
+	public LieuDeConsultation getLieu() {
+		return lieu;
 	}
 
 
-	public void setLieux(List<LieuDeConsultation> lieux) {
-		this.lieux = lieux;
+
+
+	public void setLieu(LieuDeConsultation lieu) {
+		this.lieu = lieu;
 	}
+
+
+	
 			
 }

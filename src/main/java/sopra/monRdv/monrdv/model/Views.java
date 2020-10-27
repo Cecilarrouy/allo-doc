@@ -1,7 +1,5 @@
 package sopra.monRdv.monrdv.model;
 
-import sopra.monRdv.monrdv.model.*;
-
 public class Views {
 
 	public static class ViewCommon {}
