@@ -150,5 +150,15 @@ public class RendezVous {
 		this.motifsConsultations = motifsConsultations;
 	}
 
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
 	
 }

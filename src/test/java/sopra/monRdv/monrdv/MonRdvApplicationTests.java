@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import sopra.monRdv.monrdv.model.Adresse;
 import sopra.monRdv.monrdv.model.LieuDeConsultation;
 import sopra.monRdv.monrdv.model.RendezVous;
+import sopra.monRdv.monrdv.model.Statut;
 import sopra.monRdv.monrdv.model.Administrateur;
 import sopra.monRdv.monrdv.model.Adresse;
 import sopra.monRdv.monrdv.model.Civilite;
@@ -59,14 +60,17 @@ class MonRdvApplicationTests {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			
+		//Admin
+		Administrateur admin = new Administrateur(); 
+		admin = adminRepo.save(admin); 
 		
+		
+		//Lieux Consult
 		LieuDeConsultation hopital = new LieuDeConsultation("Hopital");
 		hopital.setAdresse(new Adresse("15 rue des Lilas", null, "33600", "Pessac"));
-		
-						
+								
 		LieuDeConsultation cabinet = new LieuDeConsultation("Cabinet");
 		cabinet.setAdresse(new Adresse("avenue du truc ", null, "33400", "Talence"));
-		
 		
 		LieuDeConsultation domicile = new LieuDeConsultation("Domicile");
 		domicile.setAdresse(new Adresse("avenue du truc ", null, "33400", "Talence"));
@@ -74,27 +78,7 @@ class MonRdvApplicationTests {
 		hopital = lieuRepo.save(hopital);
 		cabinet = lieuRepo.save(cabinet);
 		domicile = lieuRepo.save(domicile);
-		
-		
-		RendezVous rendezVous1 = new RendezVous(sdf.parse("10/03/2020"),"Bon état de santé");
-		RendezVous rendezVous2 = new RendezVous(sdf.parse("12/03/2020"),"Bon état de santé");
-		RendezVous rendezVous3 = new RendezVous(sdf.parse("12/03/2020"),"Bon état de santé");
-		
-		rendezVous1 = rdvRepo.save(rendezVous1);
-		rendezVous2 = rdvRepo.save(rendezVous2);
-		rendezVous3 = rdvRepo.save(rendezVous3);
-		
-		
-	
-		
-	void contextLoads() throws ParseException {
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		
-		//Admin
-		Administrateur admin = new Administrateur(); 
-		admin = adminRepo.save(admin); 
-		
+
 		
 		// Patient 
 		Patient cecile = new Patient (); 
@@ -134,6 +118,16 @@ class MonRdvApplicationTests {
 		doc.setEmail("lavielle.jean@doc.fr");
 		doc = praticienRepo.save(doc);
 		
+				
+		//Rdv;
+		RendezVous rendezVous1 = new RendezVous(sdf.parse("10/03/2020"),"Bon état de santé");
+		rendezVous1.setStatut(Statut.PLANIFIE);
+		RendezVous rendezVous2 = new RendezVous(sdf.parse("12/03/2020"),"Bon état de santé");
+		rendezVous2.setStatut(Statut.ANNULE);
+		
+		rendezVous1 = rdvRepo.save(rendezVous1);
+		rendezVous2 = rdvRepo.save(rendezVous2);
+		
 		
 		//Utilisateur
 		Utilisateur utilisateur1 = new Utilisateur(); 
@@ -146,11 +140,24 @@ class MonRdvApplicationTests {
 		
 		//Creneaux 
 		
-		//Lieux Consult
+	
 		
 		//Motifs Consult
 		
-		//Rdv
+		
+		//Lien Personne_Utilisateur
+		cecile.setUtilisateur(utilisateur1);
+		cecile = patientRepo.save(cecile);
+		
+		//Lien Personne_Rdv
+		rendezVous1.setPatient(cecile);
+		rendezVous1.setPraticien(doc);
+		rendezVous1 = rdvRepo.save(rendezVous1);
+		
+		
+		
+		
+		
 		
 	}
 
