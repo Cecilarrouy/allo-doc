@@ -2,6 +2,7 @@ package sopra.monRdv.monrdv.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -26,7 +27,7 @@ public class Patient extends Personne {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dtNaissance;
 	@OneToMany(mappedBy = "patient")
-	private ArrayList<RendezVous> rdvs = new ArrayList<RendezVous>(); 
+	private List<RendezVous> rdvs = new ArrayList<RendezVous>(); 
 
 	
 	public Patient() {
@@ -42,6 +43,16 @@ public class Patient extends Personne {
 		this.rdvs = rdvs;
 	}
 
+
+
+	public List<RendezVous> getRdvs() {
+		return rdvs;
+	}
+
+
+	public void setRdvs(List<RendezVous> rdvs) {
+		this.rdvs = rdvs;
+	}
 
 
 	public String getNumeroSS() {
@@ -68,14 +79,7 @@ public class Patient extends Personne {
 		this.dtNaissance = dtNaissance;
 	}
 
-	public ArrayList<RendezVous> getRdvs() {
-		return rdvs;
-	}
 
-	public void setRdvs(ArrayList<RendezVous> rdvs) {
-		this.rdvs = rdvs;
-	} 
-	
 	
 	
 }

@@ -16,31 +16,31 @@ import sopra.monRdv.monrdv.repository.IUtilisateurRepository;
 @SpringBootTest
 class MonRdvApplicationTests {
 
-	@Autowired
-	private IAdministrateurRepository adminRepo; 
-	
-	@Autowired
-	private ICreneauHoraireRepository creneauRepo; 
-	
-	@Autowired
-	private ILieuDeConsultationRepository lieuRepo; 
-	
-	@Autowired
-	private IMotifsConsultationsRepository motifsRepo; 
-	
-	@Autowired
-	private IPatientRepository patientRepo; 
-	
-	@Autowired
-	private IPraticienRepository praticienRepo; 
-	
-	@Autowired
-	private IRendezVousRepostiroy rdvRepo; 
-	
-	@Autowired
-	private IUtilisateurRepository utilisateurRepo; 
-	
-		
+//	@Autowired
+//	private IAdministrateurRepository adminRepo; 
+//	
+//	@Autowired
+//	private ICreneauHoraireRepository creneauRepo; 
+//	
+//	@Autowired
+//	private ILieuDeConsultationRepository lieuRepo; 
+//	
+//	@Autowired
+//	private IMotifsConsultationsRepository motifsRepo; 
+//	
+//	@Autowired
+//	private IPatientRepository patientRepo; 
+//	
+//	@Autowired
+//	private IPraticienRepository praticienRepo; 
+//	
+//	@Autowired
+//	private IRendezVousRepostiroy rdvRepo; 
+//	
+//	@Autowired
+//	private IUtilisateurRepository utilisateurRepo; 
+//	
+//		
 	@Test
 	void contextLoads() {
 		;

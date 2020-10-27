@@ -9,6 +9,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -45,7 +47,8 @@ public class RendezVous {
 	@JsonView(Views.ViewCommon.class)
 	private Statut statut;
 	
-	@OneToMany(mappedBy = "rendezVous")
+	@ManyToOne
+	@JoinColumn(name="patient_id")
 	@JsonView(Views.ViewRendezVousDetail.class)
 	private List<Patient> patients = new ArrayList<Patient>();
 	
