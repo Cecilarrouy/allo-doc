@@ -82,18 +82,6 @@ class MonRdvApplicationTests {
 		domicile = lieuRepo.save(domicile);
 
 		
-		MotifsConsultations motif1 = new MotifsConsultations("covid", 3, "25 euros");
-		MotifsConsultations motif2 = new MotifsConsultations("fievre", 1, "25 euros");
-		MotifsConsultations motif3 = new MotifsConsultations("gastro", 1, "25 euros");
-		motif1 = motifsRepo.save(motif1);
-		motif2 = motifsRepo.save(motif2);
-		motif3 = motifsRepo.save(motif3);
-		CreneauHoraire creneau1 = new CreneauHoraire(sdf.parse("10/03/2020"));
-		CreneauHoraire creneau2 = new CreneauHoraire(sdf.parse("11/03/2020"));
-		CreneauHoraire creneau3 = new CreneauHoraire(sdf.parse("12/03/2020"));
-		creneau1 = creneauRepo.save(creneau1);
-		creneau2 = creneauRepo.save(creneau2);
-		creneau3 = creneauRepo.save(creneau3);
 		// Patient 
 		Patient cecile = new Patient (); 
 		cecile = patientRepo.save(cecile);
@@ -153,25 +141,48 @@ class MonRdvApplicationTests {
 		
 		
 		//Creneaux 
+		CreneauHoraire creneau1 = new CreneauHoraire(sdf.parse("10/03/2020"));
+		CreneauHoraire creneau2 = new CreneauHoraire(sdf.parse("11/03/2020"));
+		CreneauHoraire creneau3 = new CreneauHoraire(sdf.parse("12/03/2020"));
 		
+		creneau1 = creneauRepo.save(creneau1);
+		creneau2 = creneauRepo.save(creneau2);
+		creneau3 = creneauRepo.save(creneau3);
 	
 		
 		//Motifs Consult
+		MotifsConsultations motif1 = new MotifsConsultations("covid", 3, "25 euros");
+		MotifsConsultations motif2 = new MotifsConsultations("fievre", 1, "25 euros");
+		MotifsConsultations motif3 = new MotifsConsultations("gastro", 1, "25 euros");
 		
+		motif1 = motifsRepo.save(motif1);
+		motif2 = motifsRepo.save(motif2);
+		motif3 = motifsRepo.save(motif3);
+	
 		
 		//Lien Personne_Utilisateur
 		cecile.setUtilisateur(utilisateur1);
 		cecile = patientRepo.save(cecile);
 		
-		//Lien Personne_Rdv
+		//Lien Rdv
 		rendezVous1.setPatient(cecile);
 		rendezVous1.setPraticien(doc);
+		rendezVous1.setMotifsConsultations(motif1);
 		rendezVous1 = rdvRepo.save(rendezVous1);
 		
+		creneau1.setRdv(rendezVous1);
+		creneau1 = creneauRepo.save(creneau1);
 		
+		//Lien Creneau
+		creneau1.setPraticien(doc);
+		creneau1.setLieu(cabinet);
 		
+		creneau1 = creneauRepo.save(creneau1);
 		
+		//Lien Motif_Praticien
+		motif1.setPraticien(doc);
 		
+		motif1 = motifsRepo.save(motif1);
 		
 	}
 
