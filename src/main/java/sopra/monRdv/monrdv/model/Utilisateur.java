@@ -1,12 +1,37 @@
 package sopra.monRdv.monrdv.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import sopra.monRdv.monrdv.model.Views;
+
+@Entity
+@Table
 public class Utilisateur {
 	
+	@Id
+	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id; 
+	
+	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version; 	
+	
+	@JsonView(Views.ViewCommon.class)
 	private String identifiant; 
+	
+	@JsonView(Views.ViewCommon.class)
 	private String motDePasse;
 	
+	@OneToOne(mappedBy = "utilisateur_id")
+	@JsonView(Views.ViewCommon.class)
 	private Personne personne; 
 	
 	

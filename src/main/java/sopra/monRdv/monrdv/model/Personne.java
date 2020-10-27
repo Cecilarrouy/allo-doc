@@ -10,8 +10,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import sopra.monRdv.monrdv.model.*;
 
 @Entity
 @Table
@@ -21,29 +27,38 @@ public abstract class Personne {
 	
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id; 
 	
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version; 
 	
+	@JsonView(Views.ViewCommon.class)
 	private String nom; 
+	
+	@JsonView(Views.ViewCommon.class)
 	private String prenom; 
+	
+	@JsonView(Views.ViewCommon.class)
 	private String telephone;
 	
 	@Enumerated(EnumType.STRING)
 	private Civilite civilite;	
 	
 	@Embedded
+	@JsonView(Views.ViewCommon.class)
 	private Adresse adresse; 
 	
-	
+	@OneToOne
+	@JoinColumn(name = "utilisateur_id")
+	@JsonView(Views.ViewCommon.class)
 	private Utilisateur utilisateur; 
 
 	
 	public Personne() {
 		super();
 	}
-
 	
 	public Long getId() {
 		return id;
@@ -107,6 +122,14 @@ public abstract class Personne {
 
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
+	}
+
+	@Override
+	public String toString() {
+		return "Personne [id=" + id + ", version=" + version + ", nom=" + nom + ", prenom=" + prenom + ", telephone="
+				+ telephone + ", civilite=" + civilite + ", adresse=" + adresse + ", utilisateur=" + utilisateur + "]";
 	} 
+	
+	
 
 }

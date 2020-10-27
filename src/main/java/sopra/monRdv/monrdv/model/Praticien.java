@@ -1,18 +1,43 @@
 package sopra.monRdv.monrdv.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import sopra.monRdv.monrdv.model.*;
+
+@Entity
+@DiscriminatorValue("Praticien")
 public class Praticien extends Personne {
-		
+	
+	@JsonView(Views.ViewCommon.class)
 	private int numActivite; 
+	
+	@JsonView(Views.ViewCommon.class)
 	private String specialitePrincipale; 
-	private String specialiteSecondaire; 
+	
+	@JsonView(Views.ViewCommon.class)
+	private String specialiteSecondaire;
+	
+	@JsonView(Views.ViewCommon.class)
 	private String email;
 	
-	private ArrayList <MotifsConsultations> motifs = new ArrayList <MotifsConsultations>(); 
-	private ArrayList<RendezVous> rdvs = new ArrayList<RendezVous>(); 
-	private ArrayList<LieuDeConsultation> lieux = new ArrayList<LieuDeConsultation>(); 
-	private ArrayList<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>(); 
+	@OneToMany(mappedBy = "praticien")
+	@JsonView(Views.ViewPraticien.class)
+	private List<MotifsConsultations> motifs = new ArrayList <MotifsConsultations>();
+	
+	@OneToMany(mappedBy = "praticien")
+	@JsonView(Views.ViewPraticien.class)
+	private List<RendezVous> rdvs = new ArrayList<RendezVous>(); 
+	
+	@OneToMany(mappedBy = "praticien")
+	@JsonView(Views.ViewPraticien.class)
+	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>(); 
 
 	
 	public Praticien() {
@@ -53,7 +78,7 @@ public class Praticien extends Personne {
 	}
 
 
-	public ArrayList<MotifsConsultations> getMotifs() {
+	public List<MotifsConsultations> getMotifs() {
 		return motifs;
 	}
 
@@ -63,7 +88,7 @@ public class Praticien extends Personne {
 	}
 
 
-	public ArrayList<RendezVous> getRdvs() {
+	public List<RendezVous> getRdvs() {
 		return rdvs;
 	}
 
@@ -73,17 +98,7 @@ public class Praticien extends Personne {
 	}
 
 
-	public ArrayList<LieuDeConsultation> getLieux() {
-		return lieux;
-	}
-
-
-	public void setLieux(ArrayList<LieuDeConsultation> lieux) {
-		this.lieux = lieux;
-	}
-
-
-	public ArrayList<CreneauHoraire> getCreneaux() {
+	public List<CreneauHoraire> getCreneaux() {
 		return creneaux;
 	}
 

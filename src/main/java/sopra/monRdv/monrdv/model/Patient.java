@@ -33,7 +33,6 @@ public class Patient extends Personne {
 	public Patient() {
 		super();
 	}
-
 	
 	public String getNumeroSS() {
 		return numeroSS;

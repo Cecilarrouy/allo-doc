@@ -2,17 +2,62 @@ package sopra.monRdv.monrdv.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Version;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import sopra.monRdv.monrdv.model.Views;
+
+@Entity
+@Table
 public class RendezVous {
 
-	private Long id; 
+	@Id
+	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
+	private Long id;
+	
+	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version; 
-	private Date dtRendezVous; 
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonView(Views.ViewCommon.class)
+	private Date dtRendezVous;
+	
+	@JsonView(Views.ViewCommon.class)
 	private String conclusion; 
+	
+	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
 	private Statut statut;
 	
+	@OneToOne (mappedBy = "patient_id")
+	@JsonView(Views.ViewCommon.class)
 	private Patient patient;
+	
+	@OneToOne (mappedBy = "praticien_id")
+	@JsonView(Views.ViewCommon.class)
 	private Praticien praticien; 
+	
+	@OneToOne (mappedBy = "motifsConsultations_id")
+	@JsonView(Views.ViewCommon.class)
 	private MotifsConsultations motifsConsultations; 
+	
+	@OneToOne (mappedBy = "creneauHoraire_id")
+	@JsonView(Views.ViewCommon.class)
 	private CreneauHoraire creneauHoraire; 
 
 	
