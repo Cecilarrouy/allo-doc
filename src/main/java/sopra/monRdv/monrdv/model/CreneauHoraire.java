@@ -14,7 +14,6 @@ import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
 @Entity
-@Table(name = "creneau")
 public class CreneauHoraire {
 
 	@Id
@@ -26,91 +25,73 @@ public class CreneauHoraire {
 	@Column(name = "startdate")
 	private Date dtDebut;
 	
-	private List<RendezVous> rendezVouss = new ArrayList<RendezVous>(); 
+	private List<RendezVous> rdvs = new ArrayList<RendezVous>(); 
 	private List<Praticien> praticiens = new ArrayList<Praticien>(); 
-	private List<LieuDeConsultation> lieuDeConsultations = new ArrayList<LieuDeConsultation>();
+	private List<LieuDeConsultation> lieux = new ArrayList<LieuDeConsultation>();
 
 	
 	public CreneauHoraire() {
 		super();
 	}
 
-	
-	public List<RendezVous> getrendezVouss() {
-		return rendezVouss;
-	}
 
-	public void setRendezVous(List<RendezVous> rendezVouss) {
-		this.rendezVouss = rendezVouss;
-	}
-
-	public void addRendezVous(RendezVous rendezVous) {
-		this.rendezVouss.add(rendezVous);
-	}
-	
-	public List<Praticien> getpraticiens() {
-		return praticiens;
-	}
-
-	public void setPraticien(List<Praticien> praticiens) {
-		this.praticiens = praticiens;
-	}
-
-	public void addPraticien(Praticien praticien) {
-		this.praticiens.add(praticien);
-	}
-	
-	public List<LieuDeConsultation> getlieuDeConsultations() {
-		return lieuDeConsultations;
-	}
-
-	public void setLieuDeConsultation(List<LieuDeConsultation> lieuDeConsultations) {
-		this.lieuDeConsultations = lieuDeConsultations;
-	}
-
-	public void addLieuDeConsultation(LieuDeConsultation lieuDeConsultation) {
-		this.lieuDeConsultations.add(lieuDeConsultation);
-	}
-	
 	public Long getId() {
 		return id;
 	}
 
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 
 	public int getVersion() {
 		return version;
 	}
 
+
 	public void setVersion(int version) {
 		this.version = version;
 	}
+
 
 	public Date getDtDebut() {
 		return dtDebut;
 	}
 
+
 	public void setDtDebut(Date dtDebut) {
 		this.dtDebut = dtDebut;
 	}
 
-	public RendezVous getRendezVous() {
-		return rendezVous;
+
+	public List<RendezVous> getRdvs() {
+		return rdvs;
 	}
 
-	public void setRendezVous(RendezVous rendezVous) {
-		this.rendezVous = rendezVous;
+
+	public void setRdvs(List<RendezVous> rdvs) {
+		this.rdvs = rdvs;
 	}
 
-	public Praticien getPraticien() {
-		return praticien;
+
+	public List<Praticien> getPraticiens() {
+		return praticiens;
 	}
 
-	public void setPraticien(Praticien praticien) {
-		this.praticien = praticien;
-	} 
+
+	public void setPraticiens(List<Praticien> praticiens) {
+		this.praticiens = praticiens;
+	}
+
+
+	public List<LieuDeConsultation> getLieux() {
+		return lieux;
+	}
+
+
+	public void setLieux(List<LieuDeConsultation> lieux) {
+		this.lieux = lieux;
+	}
 			
 }
