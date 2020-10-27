@@ -49,23 +49,22 @@ public class RendezVous {
 	private Statut statut;
 	
 	@ManyToOne
+	@JoinColumn(name = "patient_id")
 	//@JsonView(Views.ViewRendezVousDetail.class)
-	@Transient
-	private List<Patient> patients = new ArrayList<Patient>();
+	private Patient patient;
 	
-	//@OneToOne (mappedBy = "praticien_id")
+	@ManyToOne 
+	@JoinColumn(name = "praticien_id")
 	//@JsonView(Views.ViewCommon.class)
-	@Transient
 	private Praticien praticien; 
 	
-	//@OneToOne (mappedBy = "motifsConsultations_id")
+	@OneToOne 
+	@JoinColumn (name = "motifsConsultations_id")
 	//@JsonView(Views.ViewCommon.class)
-	@Transient
 	private MotifsConsultations motifsConsultations; 
 	
-	//@OneToMany(mappedBy = "rendezVous")
+	@OneToMany(mappedBy = "rdv")
 	//@JsonView(Views.ViewRendezVousDetail.class)
-	@Transient
 	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>();
 	
 	public RendezVous() {

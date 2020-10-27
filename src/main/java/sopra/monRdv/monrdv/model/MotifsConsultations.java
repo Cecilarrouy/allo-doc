@@ -25,13 +25,12 @@ public class MotifsConsultations {
 	@JsonView(Views.ViewCommon.class)
 	private String tarif;
 	
-	//@ManyToOne
+	@ManyToOne
 	//@JsonView(Views.ViewCommon.class)
-	@Transient
 	private Praticien praticien; 
-	//@OneToOne
+	
+	@OneToOne (mappedBy = "motifsConsultations")
 	//@JsonView(Views.ViewCommon.class)
-	@Transient
 	private RendezVous rendezVous; 
 
 	

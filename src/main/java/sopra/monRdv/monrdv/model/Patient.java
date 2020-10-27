@@ -28,8 +28,7 @@ public class Patient extends Personne {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dtNaissance;
 	
-	//@OneToMany(mappedBy = "patient")
-	@Transient
+	@OneToMany(mappedBy = "patient")
 	private List<RendezVous> rdvs = new ArrayList<RendezVous>(); 
 
 	

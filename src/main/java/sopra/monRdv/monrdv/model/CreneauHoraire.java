@@ -25,20 +25,19 @@ public class CreneauHoraire {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dtDebut;
 	
-	//@ManyToOne
-	//@JoinColumn(name = "rdv_id")
+	@ManyToOne
+	@JoinColumn(name = "rdv_id")
 	//@JsonView(Views.ViewRendezVous.class)
-	@Transient
 	private RendezVous rdv;
-	//@ManyToOne
-	//@JoinColumn(name = "praticien_id")
+	
+	@ManyToOne
+	@JoinColumn(name = "praticien_id")
 	//@JsonView(Views.ViewPraticien.class)
-	@Transient
 	private Praticien praticien;
-	//@ManyToOne
-	//@JoinColumn(name = "lieu_id")
+	
+	@ManyToOne
+	@JoinColumn(name = "lieu_id")
 	//@JsonView(Views.ViewPraticien.class)
-	@Transient
 	private LieuDeConsultation lieu;
 
 	

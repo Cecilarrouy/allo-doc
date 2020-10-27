@@ -28,19 +28,16 @@ public class Praticien extends Personne {
 	@JsonView(Views.ViewCommon.class)
 	private String email;
 	
-	//@OneToMany(mappedBy = "praticien")
+	@OneToMany(mappedBy = "praticien")
 	//@JsonView(Views.ViewPraticien.class)
-	@Transient
 	private List<MotifsConsultations> motifs = new ArrayList <MotifsConsultations>();
 	
-	//@OneToMany(mappedBy = "praticien")
+	@OneToMany(mappedBy = "praticien")
 	//@JsonView(Views.ViewPraticien.class)
-	@Transient
 	private List<RendezVous> rdvs = new ArrayList<RendezVous>(); 
 	
-	//@OneToMany(mappedBy = "praticien")
+	@OneToMany(mappedBy = "praticien")
 	//@JsonView(Views.ViewPraticien.class)
-	@Transient
 	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>(); 
 
 	

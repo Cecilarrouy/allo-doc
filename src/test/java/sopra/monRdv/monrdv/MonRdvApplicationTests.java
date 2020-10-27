@@ -4,14 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import sopra.monRdv.monrdv.repository.IAdministrateurRepository;
-import sopra.monRdv.monrdv.repository.ICreneauHoraireRepository;
-import sopra.monRdv.monrdv.repository.ILieuDeConsultationRepository;
-import sopra.monRdv.monrdv.repository.IMotifsConsultationsRepository;
-import sopra.monRdv.monrdv.repository.IPatientRepository;
-import sopra.monRdv.monrdv.repository.IPraticienRepository;
-import sopra.monRdv.monrdv.repository.IRendezVousRepostiroy;
-import sopra.monRdv.monrdv.repository.IUtilisateurRepository;
 
 @SpringBootTest
 class MonRdvApplicationTests {

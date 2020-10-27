@@ -27,9 +27,8 @@ public class LieuDeConsultation {
 	@JsonView(Views.ViewCommon.class)
 	private Adresse adresse; 
 	
-	//@OneToMany(mappedBy = "lieu")
+	@OneToMany(mappedBy = "lieu")
 	//@JsonView(Views.ViewLieuDeConsultation.class)
-	@Transient
 	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>(); 
 
 

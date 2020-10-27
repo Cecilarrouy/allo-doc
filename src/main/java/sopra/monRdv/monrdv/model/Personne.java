@@ -51,10 +51,9 @@ public abstract class Personne {
 	@JsonView(Views.ViewCommon.class)
 	private Adresse adresse; 
 	
-	//@OneToOne
-	//@JoinColumn(name = "utilisateur_id")
+	@OneToOne
+	@JoinColumn(name = "utilisateur_id")
 	//@JsonView(Views.ViewCommon.class)
-	@Transient
 	private Utilisateur utilisateur; 
 
 	

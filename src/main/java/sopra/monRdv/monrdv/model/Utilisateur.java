@@ -31,9 +31,8 @@ public class Utilisateur {
 	@JsonView(Views.ViewCommon.class)
 	private String motDePasse;
 	
-	//@OneToOne(mappedBy = "utilisateur_id")
+	@OneToOne(mappedBy = "utilisateur")
 	//@JsonView(Views.ViewCommon.class)
-	@Transient
 	private Personne personne; 
 	
 	
