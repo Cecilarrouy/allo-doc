@@ -71,6 +71,18 @@ public class RendezVous {
 		super();
 	}
 	
+	
+	
+
+	public RendezVous(Date dtRendezVous, String conclusion) {
+		super();
+		this.dtRendezVous = dtRendezVous;
+		this.conclusion = conclusion;
+		
+	}
+
+
+
 
 	public List<CreneauHoraire> getCreneaux() {
 		return creneaux;

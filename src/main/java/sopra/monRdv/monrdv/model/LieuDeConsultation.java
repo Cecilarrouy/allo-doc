@@ -40,13 +40,9 @@ public class LieuDeConsultation {
 	
 	
 	
-	public LieuDeConsultation(Long id, int version, String nom, Adresse adresse) {
+	public LieuDeConsultation(String nom) {
 		super();
-		this.id = id;
-		this.version = version;
 		this.nom = nom;
-		this.adresse = adresse;
-		
 	}
 
 

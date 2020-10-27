@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import sopra.monRdv.monrdv.model.Adresse;
+import sopra.monRdv.monrdv.model.LieuDeConsultation;
+import sopra.monRdv.monrdv.model.RendezVous;
 import sopra.monRdv.monrdv.model.Administrateur;
 import sopra.monRdv.monrdv.model.Adresse;
 import sopra.monRdv.monrdv.model.Civilite;
@@ -52,6 +55,38 @@ class MonRdvApplicationTests {
 	
 		
 	@Test
+	void contextLoads() throws ParseException {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			
+		
+		LieuDeConsultation hopital = new LieuDeConsultation("Hopital");
+		hopital.setAdresse(new Adresse("15 rue des Lilas", null, "33600", "Pessac"));
+		
+						
+		LieuDeConsultation cabinet = new LieuDeConsultation("Cabinet");
+		cabinet.setAdresse(new Adresse("avenue du truc ", null, "33400", "Talence"));
+		
+		
+		LieuDeConsultation domicile = new LieuDeConsultation("Domicile");
+		domicile.setAdresse(new Adresse("avenue du truc ", null, "33400", "Talence"));
+		
+		hopital = lieuRepo.save(hopital);
+		cabinet = lieuRepo.save(cabinet);
+		domicile = lieuRepo.save(domicile);
+		
+		
+		RendezVous rendezVous1 = new RendezVous(sdf.parse("10/03/2020"),"Bon état de santé");
+		RendezVous rendezVous2 = new RendezVous(sdf.parse("12/03/2020"),"Bon état de santé");
+		RendezVous rendezVous3 = new RendezVous(sdf.parse("12/03/2020"),"Bon état de santé");
+		
+		rendezVous1 = rdvRepo.save(rendezVous1);
+		rendezVous2 = rdvRepo.save(rendezVous2);
+		rendezVous3 = rdvRepo.save(rendezVous3);
+		
+		
+	
+		
 	void contextLoads() throws ParseException {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
