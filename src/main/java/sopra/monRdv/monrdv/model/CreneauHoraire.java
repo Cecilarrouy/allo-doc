@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -24,17 +25,20 @@ public class CreneauHoraire {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dtDebut;
 	
-	@ManyToOne
-	@JoinColumn(name = "rdv_id")
-	@JsonView(Views.ViewRendezVous.class)
+	//@ManyToOne
+	//@JoinColumn(name = "rdv_id")
+	//@JsonView(Views.ViewRendezVous.class)
+	@Transient
 	private RendezVous rdv;
-	@ManyToOne
-	@JoinColumn(name = "praticien_id")
-	@JsonView(Views.ViewPraticien.class)
+	//@ManyToOne
+	//@JoinColumn(name = "praticien_id")
+	//@JsonView(Views.ViewPraticien.class)
+	@Transient
 	private Praticien praticien;
-	@ManyToOne
-	@JoinColumn(name = "lieu_id")
-	@JsonView(Views.ViewPraticien.class)
+	//@ManyToOne
+	//@JoinColumn(name = "lieu_id")
+	//@JsonView(Views.ViewPraticien.class)
+	@Transient
 	private LieuDeConsultation lieu;
 
 	

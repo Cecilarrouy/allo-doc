@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -27,16 +28,19 @@ public class Praticien extends Personne {
 	@JsonView(Views.ViewCommon.class)
 	private String email;
 	
-	@OneToMany(mappedBy = "praticien")
-	@JsonView(Views.ViewPraticien.class)
+	//@OneToMany(mappedBy = "praticien")
+	//@JsonView(Views.ViewPraticien.class)
+	@Transient
 	private List<MotifsConsultations> motifs = new ArrayList <MotifsConsultations>();
 	
-	@OneToMany(mappedBy = "praticien")
-	@JsonView(Views.ViewPraticien.class)
+	//@OneToMany(mappedBy = "praticien")
+	//@JsonView(Views.ViewPraticien.class)
+	@Transient
 	private List<RendezVous> rdvs = new ArrayList<RendezVous>(); 
 	
-	@OneToMany(mappedBy = "praticien")
-	@JsonView(Views.ViewPraticien.class)
+	//@OneToMany(mappedBy = "praticien")
+	//@JsonView(Views.ViewPraticien.class)
+	@Transient
 	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>(); 
 
 	

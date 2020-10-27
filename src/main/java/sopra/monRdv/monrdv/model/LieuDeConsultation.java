@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -26,8 +27,9 @@ public class LieuDeConsultation {
 	@JsonView(Views.ViewCommon.class)
 	private Adresse adresse; 
 	
-	@OneToMany(mappedBy = "lieu")
-	@JsonView(Views.ViewLieuDeConsultation.class)
+	//@OneToMany(mappedBy = "lieu")
+	//@JsonView(Views.ViewLieuDeConsultation.class)
+	@Transient
 	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>(); 
 
 

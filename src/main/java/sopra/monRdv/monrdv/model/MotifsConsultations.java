@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -24,11 +25,13 @@ public class MotifsConsultations {
 	@JsonView(Views.ViewCommon.class)
 	private String tarif;
 	
-	@ManyToOne
-	@JsonView(Views.ViewCommon.class)
+	//@ManyToOne
+	//@JsonView(Views.ViewCommon.class)
+	@Transient
 	private Praticien praticien; 
-	@OneToOne
-	@JsonView(Views.ViewCommon.class)
+	//@OneToOne
+	//@JsonView(Views.ViewCommon.class)
+	@Transient
 	private RendezVous rendezVous; 
 
 	

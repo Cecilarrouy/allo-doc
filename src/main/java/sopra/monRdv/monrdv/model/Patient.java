@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -26,7 +27,9 @@ public class Patient extends Personne {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dtNaissance;
-	@OneToMany(mappedBy = "patient")
+	
+	//@OneToMany(mappedBy = "patient")
+	@Transient
 	private List<RendezVous> rdvs = new ArrayList<RendezVous>(); 
 
 	

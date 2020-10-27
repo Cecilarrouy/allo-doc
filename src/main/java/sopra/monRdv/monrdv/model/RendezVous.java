@@ -16,6 +16,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -48,20 +49,23 @@ public class RendezVous {
 	private Statut statut;
 	
 	@ManyToOne
-	@JoinColumn(name="patient_id")
-	@JsonView(Views.ViewRendezVousDetail.class)
+	//@JsonView(Views.ViewRendezVousDetail.class)
+	@Transient
 	private List<Patient> patients = new ArrayList<Patient>();
 	
-	@OneToOne (mappedBy = "praticien_id")
-	@JsonView(Views.ViewCommon.class)
+	//@OneToOne (mappedBy = "praticien_id")
+	//@JsonView(Views.ViewCommon.class)
+	@Transient
 	private Praticien praticien; 
 	
-	@OneToOne (mappedBy = "motifsConsultations_id")
-	@JsonView(Views.ViewCommon.class)
+	//@OneToOne (mappedBy = "motifsConsultations_id")
+	//@JsonView(Views.ViewCommon.class)
+	@Transient
 	private MotifsConsultations motifsConsultations; 
 	
-	@OneToMany(mappedBy = "rendezVous")
-	@JsonView(Views.ViewRendezVousDetail.class)
+	//@OneToMany(mappedBy = "rendezVous")
+	//@JsonView(Views.ViewRendezVousDetail.class)
+	@Transient
 	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>();
 	
 	public RendezVous() {

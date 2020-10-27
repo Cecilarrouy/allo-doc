@@ -13,6 +13,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -50,9 +51,10 @@ public abstract class Personne {
 	@JsonView(Views.ViewCommon.class)
 	private Adresse adresse; 
 	
-	@OneToOne
-	@JoinColumn(name = "utilisateur_id")
-	@JsonView(Views.ViewCommon.class)
+	//@OneToOne
+	//@JoinColumn(name = "utilisateur_id")
+	//@JsonView(Views.ViewCommon.class)
+	@Transient
 	private Utilisateur utilisateur; 
 
 	

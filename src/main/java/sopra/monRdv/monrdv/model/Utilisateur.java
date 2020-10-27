@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -30,8 +31,9 @@ public class Utilisateur {
 	@JsonView(Views.ViewCommon.class)
 	private String motDePasse;
 	
-	@OneToOne(mappedBy = "utilisateur_id")
-	@JsonView(Views.ViewCommon.class)
+	//@OneToOne(mappedBy = "utilisateur_id")
+	//@JsonView(Views.ViewCommon.class)
+	@Transient
 	private Personne personne; 
 	
 	
