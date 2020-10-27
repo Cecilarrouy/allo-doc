@@ -9,10 +9,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import sopra.monRdv.monrdv.model.Adresse;
 import sopra.monRdv.monrdv.model.LieuDeConsultation;
+import sopra.monRdv.monrdv.model.MotifsConsultations;
 import sopra.monRdv.monrdv.model.RendezVous;
 import sopra.monRdv.monrdv.model.Administrateur;
 import sopra.monRdv.monrdv.model.Adresse;
 import sopra.monRdv.monrdv.model.Civilite;
+import sopra.monRdv.monrdv.model.CreneauHoraire;
 import sopra.monRdv.monrdv.model.Patient;
 import sopra.monRdv.monrdv.model.Praticien;
 import sopra.monRdv.monrdv.model.Utilisateur;
@@ -84,12 +86,27 @@ class MonRdvApplicationTests {
 		rendezVous2 = rdvRepo.save(rendezVous2);
 		rendezVous3 = rdvRepo.save(rendezVous3);
 		
+		MotifsConsultations motif1 = new MotifsConsultations("covid", 3, "25 euros");
+		MotifsConsultations motif2 = new MotifsConsultations("fievre", 1, "25 euros");
+		MotifsConsultations motif3 = new MotifsConsultations("gastro", 1, "25 euros");
+		
+		motif1 = motifsRepo.save(motif1);
+		motif2 = motifsRepo.save(motif2);
+		motif3 = motifsRepo.save(motif3);
+		
+		CreneauHoraire creneau1 = new CreneauHoraire(sdf.parse("10/03/2020"));
+		CreneauHoraire creneau2 = new CreneauHoraire(sdf.parse("11/03/2020"));
+		CreneauHoraire creneau3 = new CreneauHoraire(sdf.parse("12/03/2020"));
+		
+		creneau1 = creneauRepo.save(creneau1);
+		creneau2 = creneauRepo.save(creneau2);
+		creneau3 = creneauRepo.save(creneau3);
 		
 	
 		
-	void contextLoads() throws ParseException {
+	
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
 		//Admin
 		Administrateur admin = new Administrateur(); 

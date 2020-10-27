@@ -48,15 +48,9 @@ public class CreneauHoraire {
 	
 
 
-	public CreneauHoraire(Long id, int version, Date dtDebut, RendezVous rdv, Praticien praticien,
-			LieuDeConsultation lieu) {
+	public CreneauHoraire( Date dtDebut) {
 		super();
-		this.id = id;
-		this.version = version;
 		this.dtDebut = dtDebut;
-		this.rdv = rdv;
-		this.praticien = praticien;
-		this.lieu = lieu;
 	}
 
 
