@@ -40,16 +40,13 @@ public class MotifsConsultations {
 	
 	
 
-	public MotifsConsultations(Long id, int version, String nom, int nombreCreneau, String tarif, Praticien praticien,
-			RendezVous rendezVous) {
+	public MotifsConsultations( String nom, int nombreCreneau, String tarif) {
 		super();
-		this.id = id;
-		this.version = version;
+	
 		this.nom = nom;
 		this.nombreCreneau = nombreCreneau;
 		this.tarif = tarif;
-		this.praticien = praticien;
-		this.rendezVous = rendezVous;
+	
 	}
 
 
