@@ -21,14 +21,17 @@ public class Patient extends Personne {
 	
 	@JsonView(Views.ViewCommon.class)
 	private String numeroSS; 
+	
 	@JsonView(Views.ViewCommon.class)
 	private String email; 
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonView(Views.ViewCommon.class)
 	private Date dtNaissance;
 	
 	@OneToMany(mappedBy = "patient")
+	@JsonView(Views.ViewPatient.class)
 	private List<RendezVous> rdvs = new ArrayList<RendezVous>(); 
 
 	

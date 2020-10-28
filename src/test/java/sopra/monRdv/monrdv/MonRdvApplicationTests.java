@@ -25,7 +25,7 @@ import sopra.monRdv.monrdv.repository.ILieuDeConsultationRepository;
 import sopra.monRdv.monrdv.repository.IMotifsConsultationsRepository;
 import sopra.monRdv.monrdv.repository.IPatientRepository;
 import sopra.monRdv.monrdv.repository.IPraticienRepository;
-import sopra.monRdv.monrdv.repository.IRendezVousRepostiroy;
+import sopra.monRdv.monrdv.repository.IRendezVousRepository;
 import sopra.monRdv.monrdv.repository.IUtilisateurRepository;
 
 
@@ -51,7 +51,7 @@ class MonRdvApplicationTests {
 	private IPraticienRepository praticienRepo; 
 	
 	@Autowired
-	private IRendezVousRepostiroy rdvRepo; 
+	private IRendezVousRepository rdvRepo; 
 	
 	@Autowired
 	private IUtilisateurRepository utilisateurRepo; 

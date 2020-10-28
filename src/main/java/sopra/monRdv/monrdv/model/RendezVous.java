@@ -50,38 +50,35 @@ public class RendezVous {
 	
 	@ManyToOne
 	@JoinColumn(name = "patient_id")
-	//@JsonView(Views.ViewRendezVousDetail.class)
+	@JsonView(Views.ViewRendezVous.class)
 	private Patient patient;
 	
 	@ManyToOne 
 	@JoinColumn(name = "praticien_id")
-	//@JsonView(Views.ViewCommon.class)
+	@JsonView(Views.ViewRendezVous.class)
 	private Praticien praticien; 
 	
 	@OneToOne 
 	@JoinColumn (name = "motifsConsultations_id")
-	//@JsonView(Views.ViewCommon.class)
+	@JsonView(Views.ViewRendezVous.class)
 	private MotifsConsultations motifsConsultations; 
 	
 	@OneToMany(mappedBy = "rdv")
-	//@JsonView(Views.ViewRendezVousDetail.class)
+	@JsonView(Views.ViewRendezVous.class)
 	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>();
+	
 	
 	public RendezVous() {
 		super();
 	}
 	
 	
-	
-
 	public RendezVous(Date dtRendezVous, String conclusion) {
 		super();
 		this.dtRendezVous = dtRendezVous;
 		this.conclusion = conclusion;
 		
 	}
-
-
 
 
 	public List<CreneauHoraire> getCreneaux() {

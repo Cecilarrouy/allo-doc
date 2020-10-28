@@ -32,7 +32,7 @@ public class Utilisateur {
 	private String motDePasse;
 	
 	@OneToOne(mappedBy = "utilisateur")
-	//@JsonView(Views.ViewCommon.class)
+	@JsonView(Views.ViewUtilisateur.class)
 	private Personne personne; 
 	
 	

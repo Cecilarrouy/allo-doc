@@ -29,15 +29,15 @@ public class Praticien extends Personne {
 	private String email;
 	
 	@OneToMany(mappedBy = "praticien")
-	//@JsonView(Views.ViewPraticien.class)
+	@JsonView(Views.ViewPraticien.class)
 	private List<MotifsConsultations> motifs = new ArrayList <MotifsConsultations>();
 	
 	@OneToMany(mappedBy = "praticien")
-	//@JsonView(Views.ViewPraticien.class)
+	@JsonView(Views.ViewPraticien.class)
 	private List<RendezVous> rdvs = new ArrayList<RendezVous>(); 
 	
 	@OneToMany(mappedBy = "praticien")
-	//@JsonView(Views.ViewPraticien.class)
+	@JsonView(Views.ViewPraticien.class)
 	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>(); 
 
 	
