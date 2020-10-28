@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+
+@charset "UTF-8";
+
+/* Background */
+body, html  {
+  margin: 0;
+  /* Image */
+  background: url(C:\java\workspace\allo-doc\allo-doc-angular\src\assets\images\test.jpg);
+
+
+  /*  Hauteur  */
+  height: 50%;
+
+  /* Centrer */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#card {
+  width: 68%;
+  height: 85%;
+  align-content: center;
+  border-color: black;
+}
+
+/* Barre de nav */
+#logo {
+  font-size: 18px;
+  font-style: italic;
+  font-family: Cambria;
+  color: #8bc34a;
+}
+
+#navbar {
+  width: 100%;
+  font-size: 18px;
+  background-color: #f1f8e9;
+}
