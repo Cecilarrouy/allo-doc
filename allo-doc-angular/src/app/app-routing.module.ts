@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'confirmation', component: ConfirmationComponent},
   {path: 'dr-nom-prenom', component: DrNomPrenomComponent},
   {path: 'espace-patient', component: EspacePatientComponent},
-  {path: 'espace-professionnel, component: EspaceProfessionnelComponent},
+  {path: 'espace-professionnel', component: EspaceProfessionnelComponent},
   {path: 'fiche-nom-praticien', component: FicheNomPraticienComponent},
   {path: 'informations', component: InformationsComponent},
   {path: 'lieux-et-creneau', component: LieuxEtCreneauComponent},
