@@ -17,6 +17,8 @@ import { EspaceProfessionnelComponent } from './espace-professionnel/espace-prof
 import { DrNomPrenomComponent } from './dr-nom-prenom/dr-nom-prenom.component';
 import { InformationsComponent } from './informations/informations.component';
 import { LieuxEtCreneauComponent } from './lieux-et-creneau/lieux-et-creneau.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,10 @@ import { LieuxEtCreneauComponent } from './lieux-et-creneau/lieux-et-creneau.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
