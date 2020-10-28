@@ -19,25 +19,28 @@ public class CreneauHoraire {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id; 
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version; 
 	@Temporal(TemporalType.TIMESTAMP)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtDebut;
 	
 	@ManyToOne
 	@JoinColumn(name = "rdv_id")
-	//@JsonView(Views.ViewRendezVous.class)
+	@JsonView(Views.ViewCreneauHoraire.class)
 	private RendezVous rdv;
 	
 	@ManyToOne
 	@JoinColumn(name = "praticien_id")
-	//@JsonView(Views.ViewPraticien.class)
+	@JsonView(Views.ViewCreneauHoraire.class)
 	private Praticien praticien;
 	
 	@ManyToOne
 	@JoinColumn(name = "lieu_id")
-	//@JsonView(Views.ViewPraticien.class)
+	@JsonView(Views.ViewCreneauHoraire.class)
 	private LieuDeConsultation lieu;
 
 	

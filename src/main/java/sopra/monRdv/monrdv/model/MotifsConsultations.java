@@ -3,9 +3,9 @@ package sopra.monRdv.monrdv.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -15,8 +15,10 @@ public class MotifsConsultations {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id; 
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version; 
 	@JsonView(Views.ViewCommon.class)
 	private String nom; 
@@ -26,11 +28,12 @@ public class MotifsConsultations {
 	private String tarif;
 	
 	@ManyToOne
-	//@JsonView(Views.ViewCommon.class)
+	@JoinColumn(name = "praticien_id")
+	@JsonView(Views.ViewMotifsConsultations.class)
 	private Praticien praticien; 
 	
 	@OneToOne (mappedBy = "motifsConsultations")
-	//@JsonView(Views.ViewCommon.class)
+	@JsonView(Views.ViewMotifsConsultations.class)
 	private RendezVous rendezVous; 
 
 	

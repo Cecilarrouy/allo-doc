@@ -18,8 +18,10 @@ public class LieuDeConsultation {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id; 
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version; 
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
@@ -28,7 +30,7 @@ public class LieuDeConsultation {
 	private Adresse adresse; 
 	
 	@OneToMany(mappedBy = "lieu")
-	//@JsonView(Views.ViewLieuDeConsultation.class)
+	@JsonView(Views.ViewLieuDeConsultation.class)
 	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>(); 
 
 

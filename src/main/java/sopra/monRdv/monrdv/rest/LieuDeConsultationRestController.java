@@ -17,60 +17,60 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.monRdv.monrdv.model.CreneauHoraire;
+import sopra.monRdv.monrdv.model.LieuDeConsultation;
 import sopra.monRdv.monrdv.model.Views;
-import sopra.monRdv.monrdv.repository.ICreneauHoraireRepository;
+import sopra.monRdv.monrdv.repository.ILieuDeConsultationRepository;
 
 @RestController
-@RequestMapping("/creneau")
-public class CreneauHoraireRestController {
+@RequestMapping("/lieu")
+public class LieuDeConsultationRestController {
 
 	@Autowired
-	private ICreneauHoraireRepository creneauRepo;
+	private ILieuDeConsultationRepository lieuRepo;
 	
 	@GetMapping("")
-	@JsonView(Views.ViewCreneauHoraire.class)
-	public List<CreneauHoraire> list() {
-		return creneauRepo.findAll();
+	@JsonView(Views.ViewLieuDeConsultation.class)
+	public List<LieuDeConsultation> list() {
+		return lieuRepo.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewCreneauHoraire.class)
-	public CreneauHoraire get(@PathVariable Long id) {
+	@JsonView(Views.ViewLieuDeConsultation.class)
+	public LieuDeConsultation get(@PathVariable Long id) {
 
-		Optional<CreneauHoraire> optCreneau =creneauRepo.findById(id);
+		Optional<LieuDeConsultation> optLieu =lieuRepo.findById(id);
 
-		if (!optCreneau.isPresent()) {
+		if (!optLieu.isPresent()) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find ressource");
 		} else {
-			return optCreneau.get();
+			return optLieu.get();
 			
 		}
 		
 	}
 	
 	@PostMapping("")
-	public CreneauHoraire create(@RequestBody CreneauHoraire creneau) {
-		creneau = creneauRepo.save(creneau);
+	public LieuDeConsultation create(@RequestBody LieuDeConsultation lieu) {
+		lieu = lieuRepo.save(lieu);
 
-		return creneau;
+		return lieu;
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewCreneauHoraire.class)
-	public CreneauHoraire update(@RequestBody CreneauHoraire creneau, @PathVariable Long id) {
-		Optional<CreneauHoraire> optCreneau = creneauRepo.findById(id);
+	@JsonView(Views.ViewLieuDeConsultation.class)
+	public LieuDeConsultation update(@RequestBody LieuDeConsultation creneau, @PathVariable Long id) {
+		Optional<LieuDeConsultation> optLieu = lieuRepo.findById(id);
 
-		if (!optCreneau.isPresent()) {
+		if (!optLieu.isPresent()) {
 			
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		}
-		return creneauRepo.save(creneau);
+		return lieuRepo.save(creneau);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete (@PathVariable Long id) {
-		creneauRepo.deleteById(id);
+		lieuRepo.deleteById(id);
 	}
 	
 	

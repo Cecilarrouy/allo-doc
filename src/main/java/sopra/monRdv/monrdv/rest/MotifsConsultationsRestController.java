@@ -17,61 +17,61 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.monRdv.monrdv.model.CreneauHoraire;
+import sopra.monRdv.monrdv.model.MotifsConsultations;
 import sopra.monRdv.monrdv.model.Views;
-import sopra.monRdv.monrdv.repository.ICreneauHoraireRepository;
+import sopra.monRdv.monrdv.repository.IMotifsConsultationsRepository;
 
 @RestController
-@RequestMapping("/creneau")
-public class CreneauHoraireRestController {
-
+@RequestMapping("/motifs")
+public class MotifsConsultationsRestController {
+	
 	@Autowired
-	private ICreneauHoraireRepository creneauRepo;
+	private IMotifsConsultationsRepository motifsRepo;
 	
 	@GetMapping("")
-	@JsonView(Views.ViewCreneauHoraire.class)
-	public List<CreneauHoraire> list() {
-		return creneauRepo.findAll();
+	@JsonView(Views.ViewMotifsConsultations.class)
+	public List<MotifsConsultations> list() {
+		return motifsRepo.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewCreneauHoraire.class)
-	public CreneauHoraire get(@PathVariable Long id) {
+	@JsonView(Views.ViewMotifsConsultations.class)
+	public MotifsConsultations get(@PathVariable Long id) {
 
-		Optional<CreneauHoraire> optCreneau =creneauRepo.findById(id);
+		Optional<MotifsConsultations> optMotif =motifsRepo.findById(id);
 
-		if (!optCreneau.isPresent()) {
+		if (!optMotif.isPresent()) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find ressource");
 		} else {
-			return optCreneau.get();
+			return optMotif.get();
 			
 		}
 		
 	}
 	
 	@PostMapping("")
-	public CreneauHoraire create(@RequestBody CreneauHoraire creneau) {
-		creneau = creneauRepo.save(creneau);
+	public MotifsConsultations create(@RequestBody MotifsConsultations motif) {
+		motif = motifsRepo.save(motif);
 
-		return creneau;
+		return motif;
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewCreneauHoraire.class)
-	public CreneauHoraire update(@RequestBody CreneauHoraire creneau, @PathVariable Long id) {
-		Optional<CreneauHoraire> optCreneau = creneauRepo.findById(id);
+	@JsonView(Views.ViewMotifsConsultations.class)
+	public MotifsConsultations update(@RequestBody MotifsConsultations motif, @PathVariable Long id) {
+		Optional<MotifsConsultations> optMotif = motifsRepo.findById(id);
 
-		if (!optCreneau.isPresent()) {
+		if (!optMotif.isPresent()) {
 			
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		}
-		return creneauRepo.save(creneau);
+		return motifsRepo.save(motif);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete (@PathVariable Long id) {
-		creneauRepo.deleteById(id);
+		motifsRepo.deleteById(id);
 	}
 	
-	
+
 }
