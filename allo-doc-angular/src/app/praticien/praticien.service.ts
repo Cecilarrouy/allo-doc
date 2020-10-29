@@ -33,5 +33,8 @@ export class PraticienService {
     return this.http.get<Array<Praticien>>('http://localhost:8080/praticien/par-nom/' + nom)
   }
 
+  findAllByNomOuSpe(nom): Observable<Array<Praticien>>{
+    return this.http.get<Array<Praticien>>('http://localhost:8080/praticien/par-nom-ou-spe/' + nom)
+  }
 
 }

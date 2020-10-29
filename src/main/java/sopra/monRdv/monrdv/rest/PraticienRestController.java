@@ -110,6 +110,12 @@ public class PraticienRestController {
 		return praticienRepo.findAllBySpecialite(specialite);
 	}
 	
+	@GetMapping("/par-nom-ou-spe/{nom}")
+	@JsonView(Views.ViewPraticien.class)
+	public List<Praticien> findAllBySpecialiteOuNom(@PathVariable String nom){
+		return praticienRepo.findAllBySpecialiteOuNom(nom);
+	}
+	
 //	@GetMapping("/par-praticien-and-by-lieu/{specialite}:{lieu}")
 //	@JsonView(Views.ViewPraticien.class)
 //	public List<Praticien> findAllByPraticienAndByLieu(@PathVariable String specialite, @PathVariable String lieu ){
