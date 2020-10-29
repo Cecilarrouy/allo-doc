@@ -28,7 +28,8 @@ const routes: Routes = [
   {path: 'mes-rdv-futurs', component: MesRdvFutursComponent},
   {path: 'mes-rdv-passes', component: MesRdvPassesComponent},
   {path: 'prendre-rdv', component: PrendreRdvComponent},
-  {path: 'recherche-praticien', component: RecherchePraticienComponent},
+  {path: 'accueil', component: RecherchePraticienComponent},
+  {path: '', redirectTo: 'accueil', pathMatch: 'full'},
   {path: 'resultat', component: ResultatComponent},
   {path: 'se-connecter', component: SeConnecterComponent},
 
