@@ -7,7 +7,7 @@ import {Praticien} from "../model/praticien";
   styleUrls: ['./recherche-praticien.component.scss']
 })
 export class RecherchePraticienComponent implements OnInit {
-  praticienForm: Praticien;
+  nom: String;
 
   constructor() { }
 

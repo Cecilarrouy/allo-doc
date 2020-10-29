@@ -1,5 +1,5 @@
 <div class="row justify-content-center align-items-center mt-4">
-  <br><br><br>
+
   <div class="column" style="width: 11%;">  </div>
   <div class="column" style="width: 23%;">
     <img src="assets/images/logo.png" class="rounded-circle img-fluid ml-5" alt="Responsive image"
@@ -16,13 +16,14 @@
   <div class="row " style="width: 100%; text-align: center; align: middle;">
     <div style="width: 10%;"></div>
     <form class="form-inline ml-5 pl-5" style="width: 40%" >
-      <input class="form-control" type="text" placeholder="Rechercher un médécin par son nom ou sa spécialité" aria-label="Search" style="width: 90%" [(ngModel)]="praticienForm.nom">
+      <input  type="text" placeholder="Rechercher un médécin par son nom ou sa spécialité" aria-label="Search" style="width: 90%" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}">
+      <div>{{ nom }}</div>
     </form>
     <div class="input-group" style="width: 30%">
       <input class="form-control" type="text" placeholder="Sa localisation" aria-label="Search">
       <div class="input-group-append">
          <span class="input-group-text bg-info" id="basic-text1"><div class="btn-group" style="margin-left: 30px">
-            <a class="fas fa-search" [routerLink]="['/praticien/'+ praticienForm.nom]"><i class="fas fa-info"></i></a>
+            <a class="fas fa-search" [routerLink]="['/praticien/'+ nom]"><i class="fas fa-info"></i></a>
           </div>
 
          </span>

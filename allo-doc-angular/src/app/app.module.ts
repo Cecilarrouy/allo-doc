@@ -20,6 +20,7 @@ import { LieuxEtCreneauComponent } from './lieux-et-creneau/lieux-et-creneau.com
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PlanningComponent } from './planning/planning.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
