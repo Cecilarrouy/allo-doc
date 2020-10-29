@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Praticien} from "../model/praticien";
+import {Praticien} from '../model/praticien';
 
-import {ActivatedRoute} from "@angular/router";
-import {SessionService} from "../session.service";
-import {CommonService} from "../common.service";
-import {PraticienService} from "./praticien.service";
+import {ActivatedRoute} from '@angular/router';
+import {SessionService} from '../session.service';
+import {CommonService} from '../common.service';
+import {PraticienService} from './praticien.service';
 
 @Component({
   selector: 'app-praticien',
@@ -12,18 +12,19 @@ import {PraticienService} from "./praticien.service";
   styleUrls: ['./praticien.component.scss']
 })
 export class PraticienComponent implements OnInit {
-  praticienForm : Praticien;
+  praticienForm: Praticien;
   praticienList: Array<Praticien> = new Array<Praticien>();
   civilites: Array<String> = new Array<string>();
 
   constructor(private praticienService: PraticienService, private route: ActivatedRoute, private commonService: CommonService) {
     this.route.params.subscribe(params => {
-      this.praticienService.findAllByNomOuSpe(params.nom).subscribe(resp => this.praticienList = resp, error => console.log(error))
+      this.praticienService.findAllByNomOuSpe(params.nom).subscribe(resp => this.praticienList = resp, error => console.log(error)),
+      this.praticienService.findAllByVille(params.ville).subscribe(resp => this.praticienList = resp, error => console.log(error));
     });
 
   }
 
-
+  /**/
 
   ngOnInit(): void {
     this.commonService.findAllCivilites().subscribe(resp => this.civilites = resp, err => console.log(err));

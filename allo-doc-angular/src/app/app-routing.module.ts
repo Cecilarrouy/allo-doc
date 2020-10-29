@@ -32,7 +32,7 @@ const routes: Routes = [
   {path: 'prendre-rdv', component: PrendreRdvComponent},
   {path: 'accueil', component: RecherchePraticienComponent},
   {path: '', redirectTo: 'accueil', pathMatch: 'full'},
-  {path: 'praticien/:nom', component: PraticienComponent},
+  {path: 'praticien/:nom/:ville', component: PraticienComponent},
   {path: 'se-connecter', component: SeConnecterComponent},
 
 ];
