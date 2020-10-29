@@ -9,3 +9,5 @@ export class AppComponent {
   title = 'allo-doc-angular';
   page:'string';
 }
+
+

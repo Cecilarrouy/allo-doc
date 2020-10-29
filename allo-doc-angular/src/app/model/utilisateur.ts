@@ -1,4 +1,4 @@
-export class MotifsConsultations {
+export class Utilisateur {
   id: number;
   version: number;
   identifiant: string;
