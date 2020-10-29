@@ -19,7 +19,7 @@ import { InformationsComponent } from './informations/informations.component';
 import { LieuxEtCreneauComponent } from './lieux-et-creneau/lieux-et-creneau.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from "@angular/router";
+import { PlanningComponent } from './planning/planning.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import {RouterModule} from "@angular/router";
     EspaceProfessionnelComponent,
     DrNomPrenomComponent,
     InformationsComponent,
-    LieuxEtCreneauComponent
+    LieuxEtCreneauComponent,
+    PlanningComponent
   ],
   imports: [
     BrowserModule,

@@ -8,8 +8,11 @@ export class Praticien extends Personne {
   email: string;
 
 
-  constructor(id: number, version: number, civilite: string, nom: string, prenom: string, telephone: string, adresse: Adresse, specialitePrincipale: string) {
+  constructor(id?: number, version?: number, civilite?: string, nom?: string, prenom?: string, telephone?: string, adresse?: Adresse, specialitePrincipale?: string,
+              specialiteSecondaire?: string, email?: string) {
     super(id, version, civilite, nom, prenom, telephone, adresse);
     this.specialitePrincipale = specialitePrincipale;
+    this.specialiteSecondaire = specialiteSecondaire;
+    this.email = email;
   }
 }

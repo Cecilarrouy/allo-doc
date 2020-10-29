@@ -14,6 +14,7 @@ import {RecherchePraticienComponent} from "./recherche-praticien/recherche-prati
 import {PraticienComponent} from "./praticien/praticien.component";
 import {SeConnecterComponent} from "./se-connecter/se-connecter.component";
 import {FicheNomPraticienComponent} from "./fiche-nom-praticien/fiche-nom-praticien.component";
+import {PlanningComponent} from './planning/planning.component';
 
 
 const routes: Routes = [
@@ -23,10 +24,11 @@ const routes: Routes = [
   {path: 'espace-professionnel', component: EspaceProfessionnelComponent},
   {path: 'fiche-nom-praticien', component: FicheNomPraticienComponent},
   {path: 'informations', component: InformationsComponent},
-  {path: 'lieux-et-creneau', component: LieuxEtCreneauComponent},
-  {path: 'mes-donnees-personnelles', component: MesDonneesPersonnellesComponent},
+  {path: 'espace-professionnel/lieux-et-creneau', component: LieuxEtCreneauComponent},
+  {path: 'espace-professionnel/mes-donnees-personnelles', component: MesDonneesPersonnellesComponent},
   {path: 'mes-rdv-futurs', component: MesRdvFutursComponent},
   {path: 'mes-rdv-passes', component: MesRdvPassesComponent},
+  {path: 'espace-professionnel/planning', component: PlanningComponent},
   {path: 'prendre-rdv', component: PrendreRdvComponent},
   {path: 'accueil', component: RecherchePraticienComponent},
   {path: '', redirectTo: 'accueil', pathMatch: 'full'},
