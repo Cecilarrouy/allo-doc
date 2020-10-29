@@ -18,7 +18,10 @@ export class PraticienComponent implements OnInit {
 
   constructor(private praticienService: PraticienService, private route: ActivatedRoute, private commonService: CommonService) {
     this.route.params.subscribe(params => {
-      this.praticienService.findAllByNomOuSpe(params.nom).subscribe(resp => this.praticienList = resp, error => console.log(error)),
+      if (params.nom != null && params.lieu == null) {
+        this.praticienService.findAllByNomOuSpe(params.nom).subscribe(resp => this.praticienList = resp, error => console.log(error))
+      }
+      else{}
       this.praticienService.findAllByVille(params.ville).subscribe(resp => this.praticienList = resp, error => console.log(error));
     });
 
