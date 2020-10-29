@@ -10,7 +10,7 @@ export class CommonService {
   constructor(private http: HttpClient) { }
 
   findAllCivilites(): Observable<Array<string>> {
-    return this.http.get<Array<string>>("http://localhost:8080/api/civilites");
+    return this.http.get<Array<string>>("http://localhost:8080/civilites");
   }
 
   findAllStatuts(): Observable<Array<string>> {

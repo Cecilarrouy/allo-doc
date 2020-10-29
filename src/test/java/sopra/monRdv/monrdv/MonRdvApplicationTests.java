@@ -120,6 +120,43 @@ class MonRdvApplicationTests {
 		doc.setEmail("lavielle.jean@doc.fr");
 		doc = praticienRepo.save(doc);
 		
+		Praticien doc2 = new Praticien (); 
+		doc2 = praticienRepo.save(doc2);
+		
+		doc2.setCivilite(Civilite.M);
+		doc2.setNom("LAVIELLE");
+		doc2.setPrenom("Denis");
+		doc2.setTelephone("0558553622");
+		doc2 = praticienRepo.save(doc2); 
+		
+		doc2.setAdresse(new Adresse("3 rue du covid", "", "33400", "Talence"));
+		doc2 = praticienRepo.save(doc2); 
+
+		doc2.setNumActivite(235);
+		doc2.setSpecialitePrincipale("Oncologue");
+		doc2.setSpecialiteSecondaire("Orthopédiste");
+		doc2.setEmail("lavielle.denis@doc.fr");
+		doc2 = praticienRepo.save(doc2);
+		
+		Praticien doc3 = new Praticien (); 
+		doc3 = praticienRepo.save(doc3);
+		
+		doc3.setCivilite(Civilite.M);
+		doc3.setNom("LATELADE");
+		doc3.setPrenom("Jean-Pierre");
+		doc3.setTelephone("0558553622");
+		doc3 = praticienRepo.save(doc3); 
+		
+		doc3.setAdresse(new Adresse("3 rue du truc", "", "33000", "Bordeaux"));
+		doc3 = praticienRepo.save(doc3); 
+
+		doc3.setNumActivite(235);
+		doc3.setSpecialitePrincipale("Chirurgien");
+		doc3.setSpecialiteSecondaire("Urologue");
+		doc3.setEmail("latelade.jean-pierre@doc.fr");
+		doc3 = praticienRepo.save(doc3);
+		
+		
 				
 		//Rdv;
 		RendezVous rendezVous1 = new RendezVous(sdf.parse("10/03/2020"),"Bon état de santé");
@@ -184,6 +221,13 @@ class MonRdvApplicationTests {
 		
 		motif1 = motifsRepo.save(motif1);
 		
+		//Lien Praticien Lieu de Consultation
+		hopital.setPraticien(doc);
+		cabinet.setPraticien(doc2);
+		domicile.setPraticien(doc3);
+		hopital = lieuRepo.save(hopital);
+		cabinet = lieuRepo.save(cabinet);
+		domicile = lieuRepo.save(domicile);
 	}
 
 }

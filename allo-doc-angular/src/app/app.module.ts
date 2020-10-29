@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RecherchePraticienComponent } from './recherche-praticien/recherche-praticien.component';
-import { ResultatComponent } from './resultat/resultat.component';
+import { PraticienComponent } from './praticien/praticien.component';
 import { FicheNomPraticienComponent } from './fiche-nom-praticien/fiche-nom-praticien.component';
 import { PrendreRdvComponent } from './prendre-rdv/prendre-rdv.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
@@ -19,12 +19,13 @@ import { InformationsComponent } from './informations/informations.component';
 import { LieuxEtCreneauComponent } from './lieux-et-creneau/lieux-et-creneau.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
     AppComponent,
     RecherchePraticienComponent,
-    ResultatComponent,
+    PraticienComponent,
     FicheNomPraticienComponent,
     PrendreRdvComponent,
     ConfirmationComponent,
@@ -43,6 +44,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule
   ],
   providers: [],

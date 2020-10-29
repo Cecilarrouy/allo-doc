@@ -1,5 +1,28 @@
 <div class="container-fluid scroll">
+  <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>version</th>
+      <th>nom</th>
+      <th>prenom</th>
+      <th>Spécialité 1</th>
+      <th>Spécialité 2</th>
 
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let praticien of list()">
+      <td>{{praticien.id}}</td>
+      <td>{{praticien.version}}</td>
+      <td>{{praticien.nom}}</td>
+      <td>{{praticien.prenom}}</td>
+      <td>{{praticien.specialitePrincipale}}</td>
+      <td>{{praticien.specialiteSecondaire}}</td>
+
+    </tr>
+    </tbody>
+  </table>
   <div class="card shadow my-5 mx-auto pr-4 pl-4">
 
     <div class="card-body">

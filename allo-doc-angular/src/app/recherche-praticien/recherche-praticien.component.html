@@ -15,14 +15,16 @@
 <div class="row justify-content-center mt-5 mb-5">
   <div class="row " style="width: 100%; text-align: center; align: middle;">
     <div style="width: 10%;"></div>
-    <form class="form-inline ml-5 pl-5" style="width: 40%">
-      <input class="form-control" type="text" placeholder="Rechercher un médécin par son nom ou sa spécialité" aria-label="Search" style="width: 90%">
+    <form class="form-inline ml-5 pl-5" style="width: 40%" >
+      <input class="form-control" type="text" placeholder="Rechercher un médécin par son nom ou sa spécialité" aria-label="Search" style="width: 90%" [(ngModel)]="praticienForm.nom">
     </form>
     <div class="input-group" style="width: 30%">
       <input class="form-control" type="text" placeholder="Sa localisation" aria-label="Search">
       <div class="input-group-append">
-         <span class="input-group-text bg-info" id="basic-text1">
-           <i class="fas fa-search" aria-hidden="true" style="color: white"></i>
+         <span class="input-group-text bg-info" id="basic-text1"><div class="btn-group" style="margin-left: 30px">
+            <a class="fas fa-search" [routerLink]="['/praticien/'+ praticienForm.nom]"><i class="fas fa-info"></i></a>
+          </div>
+
          </span>
       </div>
     </div>

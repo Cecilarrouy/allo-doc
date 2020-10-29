@@ -39,6 +39,10 @@ public class Praticien extends Personne {
 	@OneToMany(mappedBy = "praticien")
 	@JsonView(Views.ViewPraticien.class)
 	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>(); 
+	
+	@OneToMany(mappedBy = "praticien")
+	@JsonView(Views.ViewPraticien.class)
+	private List<LieuDeConsultation> lieuDeConsultation = new ArrayList<LieuDeConsultation>(); 
 
 	
 	public Praticien() {
@@ -106,6 +110,18 @@ public class Praticien extends Personne {
 
 	public void setCreneaux(ArrayList<CreneauHoraire> creneaux) {
 		this.creneaux = creneaux;
+	}
+
+
+	public List<LieuDeConsultation> getLieuDeConsultation() {
+		return lieuDeConsultation;
+	}
+
+
+	public void setLieuDeConsultation(ArrayList<LieuDeConsultation> lieuDeConsultation) {
+		this.lieuDeConsultation = lieuDeConsultation;
 	} 
+	
+	
 		
 }

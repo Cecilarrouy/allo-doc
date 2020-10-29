@@ -11,7 +11,7 @@ import {MesRdvFutursComponent} from './mes-rdv-futurs/mes-rdv-futurs.component';
 import {MesRdvPassesComponent} from "./mes-rdv-passes/mes-rdv-passes.component";
 import {PrendreRdvComponent} from './prendre-rdv/prendre-rdv.component';
 import {RecherchePraticienComponent} from "./recherche-praticien/recherche-praticien.component";
-import {ResultatComponent} from "./resultat/resultat.component";
+import {PraticienComponent} from "./praticien/praticien.component";
 import {SeConnecterComponent} from "./se-connecter/se-connecter.component";
 import {FicheNomPraticienComponent} from "./fiche-nom-praticien/fiche-nom-praticien.component";
 
@@ -30,7 +30,7 @@ const routes: Routes = [
   {path: 'prendre-rdv', component: PrendreRdvComponent},
   {path: 'accueil', component: RecherchePraticienComponent},
   {path: '', redirectTo: 'accueil', pathMatch: 'full'},
-  {path: 'resultat', component: ResultatComponent},
+  {path: 'praticien/:nom', component: PraticienComponent},
   {path: 'se-connecter', component: SeConnecterComponent},
 
 ];

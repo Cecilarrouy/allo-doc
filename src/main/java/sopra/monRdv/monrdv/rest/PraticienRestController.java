@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +27,7 @@ import sopra.monRdv.monrdv.repository.IRendezVousRepository;
 
 @RestController
 @RequestMapping("/praticien")
+@CrossOrigin("*")
 public class PraticienRestController {
 
 	@Autowired
@@ -90,6 +91,30 @@ public class PraticienRestController {
 		praticienRepo.deleteById(id);
 	}
 	
+	
+	@GetMapping("/par-nom/{nom}")
+	@JsonView(Views.ViewPraticien.class)
+	public List<Praticien> findAllByNom(@PathVariable String nom){
+		return praticienRepo.findAllByNom(nom);
+	}
+	
+	@GetMapping("/par-ville/{ville}")
+	@JsonView(Views.ViewPraticien.class)
+	public List<Praticien> findAllByVille(@PathVariable String ville){
+		return praticienRepo.findAllByVille(ville);
+	}
+	
+	@GetMapping("/par-specialite/{specialite}")
+	@JsonView(Views.ViewPraticien.class)
+	public List<Praticien> findAllBySpecialite(@PathVariable String specialite){
+		return praticienRepo.findAllBySpecialite(specialite);
+	}
+	
+//	@GetMapping("/par-praticien-and-by-lieu/{specialite}:{lieu}")
+//	@JsonView(Views.ViewPraticien.class)
+//	public List<Praticien> findAllByPraticienAndByLieu(@PathVariable String specialite, @PathVariable String lieu ){
+//		return praticienRepo.findAllBySpecialiteAndByLieu(specialite, lieu);
+//	}
 	
 	
 }

@@ -7,6 +7,8 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.persistence.Version;
@@ -32,10 +34,27 @@ public class LieuDeConsultation {
 	@OneToMany(mappedBy = "lieu")
 	@JsonView(Views.ViewLieuDeConsultation.class)
 	private List<CreneauHoraire> creneaux = new ArrayList<CreneauHoraire>(); 
+	
+	@ManyToOne
+	@JoinColumn(name = "praticien_id")
+	@JsonView(Views.ViewLieuDeConsultation.class)
+	private Praticien praticien;
 
 
 
 	
+	public Praticien getPraticien() {
+		return praticien;
+	}
+
+
+
+	public void setPraticien(Praticien praticien) {
+		this.praticien = praticien;
+	}
+
+
+
 	public LieuDeConsultation() {
 		super();
 	}

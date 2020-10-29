@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Praticien} from "../model/praticien";
 
 @Component({
   selector: 'app-recherche-praticien',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recherche-praticien.component.scss']
 })
 export class RecherchePraticienComponent implements OnInit {
+  praticienForm: Praticien;
 
   constructor() { }
 
