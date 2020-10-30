@@ -407,6 +407,15 @@ class MonRdvApplicationTests {
 		CreneauHoraire creneau3 = new CreneauHoraire(sdfhm.parse("02/11/2020, 15:45"));
 		creneau3 = creneauRepo.save(creneau3);
 		
+		CreneauHoraire creneau4 = new CreneauHoraire(sdfhm.parse("04/11/2020, 11:30"));
+		creneau1 = creneauRepo.save(creneau4);
+		
+		CreneauHoraire creneau5 = new CreneauHoraire(sdfhm.parse("05/11/2020, 16:45"));
+		creneau2 = creneauRepo.save(creneau5);
+		
+		CreneauHoraire creneau6 = new CreneauHoraire(sdfhm.parse("05/11/2020, 18:00"));
+		creneau3 = creneauRepo.save(creneau6);
+		
 			
 		
 		//Motifs Consult
@@ -510,17 +519,47 @@ class MonRdvApplicationTests {
 		rdv6 = rdvRepo.save(rdv6);
 		
 		
-		//Lien Creneau
+		//Lien Creneaux
 		
 		creneau1.setPraticien(doc);
 		creneau1.setLieu(cabinetDoc);
 		creneau1.setRdv(rdv1);
 		creneau1 = creneauRepo.save(creneau1);
 		
+		//_______________________________________
+		
 		creneau2.setPraticien(doc);
 		creneau2.setLieu(cabinetDoc);
 		creneau2.setRdv(rdv2);
 		creneau2 = creneauRepo.save(creneau2);
+		
+		//_______________________________________
+		
+		creneau3.setPraticien(doc);
+		creneau3.setLieu(cabinetDoc);
+		creneau3.setRdv(rdv3);
+		creneau3 = creneauRepo.save(creneau3);
+		
+		//_______________________________________
+		
+		creneau4.setPraticien(doc);
+		creneau4.setLieu(cabinetDoc);
+		creneau4.setRdv(rdv4);
+		creneau4 = creneauRepo.save(creneau4);
+		
+		//_______________________________________
+		
+		creneau5.setPraticien(doc);
+		creneau5.setLieu(cabinetDoc);
+		creneau5.setRdv(rdv5);
+		creneau5 = creneauRepo.save(creneau5);
+		
+		//_______________________________________
+		
+		creneau6.setPraticien(doc);
+		creneau6.setLieu(cabinetDoc);
+		creneau6.setRdv(rdv6);
+		creneau6 = creneauRepo.save(creneau6);
 		
 				
 		
