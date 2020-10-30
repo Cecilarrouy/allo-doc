@@ -245,33 +245,42 @@ class MonRdvApplicationTests {
 		
 	
 		LieuDeConsultation hopitalDoc = new LieuDeConsultation("Consultations Hôpital");
+		hopitalDoc.setAdresse(new Adresse("10 rue Chanzy", "", "40100", "Dax"));
 		hopitalDoc = lieuRepo.save(hopitalDoc);
 								
 		LieuDeConsultation cabinetDoc = new LieuDeConsultation("Consultations Cabinet");
+		cabinetDoc.setAdresse(new Adresse("1 rue Chanzy", "", "40100", "Dax"));
 		cabinetDoc = lieuRepo.save(cabinetDoc);
 		
 		LieuDeConsultation domicileDoc = new LieuDeConsultation("Visite à domicile");
+		domicileDoc.setAdresse(new Adresse("20 rue Chanzy", "", "40100", "Dax"));
 		domicileDoc = lieuRepo.save(domicileDoc);
 		
 		//_______________________________________
 		
 		LieuDeConsultation hopitalDoc2 = new LieuDeConsultation("Consultations Hôpital");
+		hopitalDoc2.setAdresse(new Adresse("10 place Pey Berland", "", "33000", "Bordeaux"));
+		
 		hopitalDoc2 = lieuRepo.save(hopitalDoc2);
 								
 		LieuDeConsultation cabinetDoc2 = new LieuDeConsultation("Consultations Cabinet");
+		cabinetDoc2.setAdresse(new Adresse("3 place Pey Berland", "", "33000", "Bordeaux"));
 		cabinetDoc2 = lieuRepo.save(cabinetDoc2);
 		
 		//_______________________________________
 		
 		LieuDeConsultation hopitalDoc3 = new LieuDeConsultation("Consultations Hôpital");
+		hopitalDoc3.setAdresse(new Adresse("30 rue du truc", "", "33000", "Bordeaux"));
 		hopitalDoc3 = lieuRepo.save(hopitalDoc3);
 								
 		LieuDeConsultation cliniqueDoc3 = new LieuDeConsultation("Consultations Clinique");
+		cliniqueDoc3.setAdresse(new Adresse("3 rue du truc", "", "33000", "Bordeaux"));
 		cliniqueDoc3 = lieuRepo.save(cliniqueDoc3);
 		
 		//_______________________________________
 		
 		LieuDeConsultation cabinetDoc4 = new LieuDeConsultation("Consultations Cabinet");
+		cabinetDoc4.setAdresse(new Adresse("3 avenue Gambetta", "", "33400", "Talence"));
 		cabinetDoc4 = lieuRepo.save(cabinetDoc4);
 		
 		

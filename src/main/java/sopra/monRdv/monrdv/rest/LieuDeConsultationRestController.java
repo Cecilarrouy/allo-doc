@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import sopra.monRdv.monrdv.repository.ILieuDeConsultationRepository;
 
 @RestController
 @RequestMapping("/lieu")
+@CrossOrigin("*")
 public class LieuDeConsultationRestController {
 
 	@Autowired
@@ -72,6 +74,11 @@ public class LieuDeConsultationRestController {
 	public void delete (@PathVariable Long id) {
 		lieuRepo.deleteById(id);
 	}
-	
+
+	@GetMapping("/lieu-de-consultation/par-praticien/{id}")
+	@JsonView(Views.ViewLieuDeConsultation.class)
+	public List<LieuDeConsultation> findAllByPraticien(@PathVariable Long id) {
+		return lieuRepo.findAllByPraticien(id);
+	}
 	
 }

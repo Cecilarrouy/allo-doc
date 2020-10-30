@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'dr-nom-prenom', component: DrNomPrenomComponent},
   {path: 'espace-patient', component: EspacePatientComponent},
   {path: 'espace-professionnel', component: EspaceProfessionnelComponent},
-  {path: 'fiche-nom-praticien', component: FicheNomPraticienComponent},
+  {path: 'fiche-nom-praticien/:id', component: FicheNomPraticienComponent},
   {path: 'informations', component: InformationsComponent},
   {path: 'espace-professionnel/lieux-et-creneau', component: LieuxEtCreneauComponent},
   {path: 'espace-professionnel/mes-donnees-personnelles', component: MesDonneesPersonnellesComponent},

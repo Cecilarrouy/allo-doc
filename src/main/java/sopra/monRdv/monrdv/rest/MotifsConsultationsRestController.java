@@ -18,8 +18,10 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import sopra.monRdv.monrdv.model.LieuDeConsultation;
 import sopra.monRdv.monrdv.model.MotifsConsultations;
 import sopra.monRdv.monrdv.model.Views;
+import sopra.monRdv.monrdv.model.Views.ViewMotifsConsultations;
 import sopra.monRdv.monrdv.repository.IMotifsConsultationsRepository;
 
 @RestController
@@ -73,6 +75,12 @@ public class MotifsConsultationsRestController {
 	@DeleteMapping("/{id}")
 	public void delete (@PathVariable Long id) {
 		motifsRepo.deleteById(id);
+	}
+	
+	@GetMapping("/motif-de-consultation/par-praticien/{id}")
+	@JsonView(Views.ViewMotifsConsultations.class)
+	public List<MotifsConsultations> findAllByPraticien(@PathVariable Long id) {
+		return motifsRepo.findAllByPraticien(id);
 	}
 	
 
