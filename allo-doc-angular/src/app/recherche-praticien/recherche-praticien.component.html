@@ -14,18 +14,15 @@
 
 <div class="row justify-content-center mt-5 mb-5">
   <div class="row " style="width: 100%; text-align: center; align: middle;">
-    <div style="width: 10%;"></div>
-    <form class="form-inline ml-5 pl-5" style="width: 40%" >
-      <input  type="text" placeholder="Rechercher un médécin par son nom ou sa spécialité" aria-label="Search" style="width: 90%" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}">
-      <div>{{ nom }}</div>
-    </form>
-    <div class="input-group" style="width: 30%">
-      <input class="form-control" type="text" placeholder="Sa localisation" aria-label="Search" [(ngModel)]="ville" [ngModelOptions]="{standalone: true}" >
+    <div style="width: 15%;"></div>
+       <div class="input-group" style="width: 70%">
+      <input class="form-control" style="width: 60%" type="text" placeholder="Rechercher un médécin par son nom ou sa spécialité" aria-label="Search" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" >
+      <input class="form-control" style="width: 5%" type="text" placeholder="Sa localisation" aria-label="Search" [(ngModel)]="ville" [ngModelOptions]="{standalone: true}" >
       <div class="input-group-append">
-         <span class="input-group-text bg-info" id="basic-text1"><div class="btn-group" style="margin-left: 30px">
-            <a class="fas fa-search" [routerLink]="['praticien/', nom , ville]"><i class="fas fa-info"></i></a>
+         <span class="input-group-text bg-info" id="basic-text1">
+           <div class="btn-group" style="margin-left: 10px">
+            <a class="fas fa-search" (click)="search()" ></a>
           </div>
-
          </span>
       </div>
     </div>

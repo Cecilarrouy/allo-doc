@@ -58,7 +58,7 @@ public class RendezVous {
 	@JsonView(Views.ViewRendezVous.class)
 	private Praticien praticien; 
 	
-	@OneToOne 
+	@ManyToOne
 	@JoinColumn (name = "motifsConsultations_id")
 	@JsonView(Views.ViewRendezVous.class)
 	private MotifsConsultations motifsConsultations; 

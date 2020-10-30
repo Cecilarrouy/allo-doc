@@ -14,7 +14,7 @@ import {PraticienService} from './praticien.service';
 export class PraticienComponent implements OnInit {
   praticienForm: Praticien;
   praticienList: Array<Praticien> = new Array<Praticien>();
-  civilites: Array<String> = new Array<string>();
+  civilites: Array<string> = new Array<string>();
 
   constructor(private praticienService: PraticienService, private route: ActivatedRoute, private commonService: CommonService) {
     this.route.params.subscribe(params => {

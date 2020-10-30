@@ -1,10 +1,15 @@
+
 package sopra.monRdv.monrdv.model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
@@ -32,9 +37,10 @@ public class MotifsConsultations {
 	@JsonView(Views.ViewMotifsConsultations.class)
 	private Praticien praticien; 
 	
-	@OneToOne (mappedBy = "motifsConsultations")
-	@JsonView(Views.ViewMotifsConsultations.class)
-	private RendezVous rendezVous; 
+	
+	@OneToMany(mappedBy = "motifsConsultations")
+	@JsonView(Views.ViewPraticien.class)
+	private List<RendezVous> rdvs = new ArrayList <RendezVous>();
 
 	
 	public MotifsConsultations() {
@@ -102,12 +108,18 @@ public class MotifsConsultations {
 		this.praticien = praticien;
 	}
 
-	public RendezVous getRendezVous() {
-		return rendezVous;
+
+
+	public List<RendezVous> getRdvs() {
+		return rdvs;
 	}
 
-	public void setRendezVous(RendezVous rendezVous) {
-		this.rendezVous = rendezVous;
-	} 
+
+
+	public void setRdvs(List<RendezVous> rdvs) {
+		this.rdvs = rdvs;
+	}
+
+
 			
 }

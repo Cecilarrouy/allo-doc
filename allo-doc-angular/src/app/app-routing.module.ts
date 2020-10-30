@@ -15,6 +15,9 @@ import {PraticienComponent} from "./praticien/praticien.component";
 import {SeConnecterComponent} from "./se-connecter/se-connecter.component";
 import {FicheNomPraticienComponent} from "./fiche-nom-praticien/fiche-nom-praticien.component";
 import {PlanningComponent} from './planning/planning.component';
+import {RechercheParNomOuSpecialiteComponent} from './recherche-par-nom-ou-specialite/recherche-par-nom-ou-specialite.component';
+import {RechercheParVilleComponent} from './recherche-par-ville/recherche-par-ville.component';
+import {RechercheMultiCriteresComponent} from './recherche-multi-criteres/recherche-multi-criteres.component';
 
 
 const routes: Routes = [
@@ -31,8 +34,11 @@ const routes: Routes = [
   {path: 'espace-professionnel/planning', component: PlanningComponent},
   {path: 'prendre-rdv', component: PrendreRdvComponent},
   {path: 'accueil', component: RecherchePraticienComponent},
+  {path: 'praticien/recherche-par-nom-ou-specialite/:nom', component: RechercheParNomOuSpecialiteComponent},
+  {path: 'praticien/recherche-par-ville/:ville', component: RechercheParVilleComponent},
+  {path: 'praticien/recherche-multi-criteres/:nom/:ville', component: RechercheMultiCriteresComponent},
   {path: '', redirectTo: 'accueil', pathMatch: 'full'},
-  {path: 'praticien/:nom/:ville', component: PraticienComponent},
+  {path: 'praticien', component: PraticienComponent},
   {path: 'se-connecter', component: SeConnecterComponent},
 
 ];

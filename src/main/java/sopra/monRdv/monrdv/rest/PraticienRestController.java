@@ -92,13 +92,13 @@ public class PraticienRestController {
 	}
 	
 	
-	@GetMapping("/par-nom/{nom}")
+	@GetMapping("/recherche-par-nom/{nom}")
 	@JsonView(Views.ViewPraticien.class)
 	public List<Praticien> findAllByNom(@PathVariable String nom){
 		return praticienRepo.findAllByNom(nom);
 	}
 	
-	@GetMapping("/par-ville/{ville}")
+	@GetMapping("/recherche-par-ville/{ville}")
 	@JsonView(Views.ViewPraticien.class)
 	public List<Praticien> findAllByVille(@PathVariable String ville){
 		return praticienRepo.findAllByVille(ville);
@@ -110,13 +110,13 @@ public class PraticienRestController {
 		return praticienRepo.findAllBySpecialite(specialite);
 	}
 	
-	@GetMapping("/par-nom-ou-spe/{nom}")
+	@GetMapping("/recherche-par-nom-ou-specialite/{nom}")
 	@JsonView(Views.ViewPraticien.class)
 	public List<Praticien> findAllBySpecialiteOuNom(@PathVariable String nom){
 		return praticienRepo.findAllBySpecialiteOuNom(nom);
 	}
 	
-	@GetMapping("/par-nom-ou-spe-ou-ville/{nom}/par-ville/{ville}")
+	@GetMapping("recherche-multi-criteres/{nom}/{ville}")
 	@JsonView(Views.ViewPraticien.class)
 	public List<Praticien> findAllBySpecialiteOuNomOuVille(@PathVariable String nom, @PathVariable String ville){
 		return praticienRepo.findAllBySpecialiteOuNomOuVille(nom, ville);

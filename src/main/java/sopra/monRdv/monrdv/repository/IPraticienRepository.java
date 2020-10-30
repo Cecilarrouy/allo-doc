@@ -28,7 +28,7 @@ public interface IPraticienRepository extends JpaRepository<Praticien, Long>{
 	@Query("select p from Praticien p where p.specialitePrincipale = :nom or p.specialiteSecondaire =:nom or p.nom = :nom")
 	List<Praticien> findAllBySpecialiteOuNom(@Param("nom") String nom);
 	
-	@Query("select p from Praticien p where p.specialitePrincipale = :nom and p.adresse.ville = :ville or p.specialiteSecondaire =:nom and p.adresse.ville = :ville or p.nom = :nom and p.adresse.ville = :ville")
+	@Query("select p from Praticien p where p.nom = :nom and p.adresse.ville = :ville")
 	List<Praticien> findAllBySpecialiteOuNomOuVille(@Param("nom") String nom, @Param("ville") String ville);
 	
 //	@Query("select p from Praticien p where p.specialitePrincipale = :specialite or specialiteSecondaire = :specialite and a.effectuee = :effectuee")

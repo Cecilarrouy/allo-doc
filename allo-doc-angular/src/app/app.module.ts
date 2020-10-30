@@ -21,6 +21,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PlanningComponent } from './planning/planning.component';
 import {RouterModule} from "@angular/router";
+import { RechercheParNomOuSpecialiteComponent } from './recherche-par-nom-ou-specialite/recherche-par-nom-ou-specialite.component';
+import { RechercheParVilleComponent } from './recherche-par-ville/recherche-par-ville.component';
+import { RechercheMultiCriteresComponent } from './recherche-multi-criteres/recherche-multi-criteres.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import {RouterModule} from "@angular/router";
     DrNomPrenomComponent,
     InformationsComponent,
     LieuxEtCreneauComponent,
-    PlanningComponent
+    PlanningComponent,
+    RechercheParNomOuSpecialiteComponent,
+    RechercheParVilleComponent,
+    RechercheMultiCriteresComponent
   ],
   imports: [
     BrowserModule,
