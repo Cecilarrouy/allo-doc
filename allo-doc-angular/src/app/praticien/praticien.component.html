@@ -23,14 +23,14 @@
     </tr>
     </tbody>
   </table>
-  <div class="card shadow my-5 mx-auto pr-4 pl-4">
+  <div class="card shadow my-5 mx-auto pr-4 pl-4" *ngFor="let praticien of praticienList">
 
     <div class="card-body">
       <div class="row ml-3 py-4">
-        <div class="col-sm-2 " > Nom Prenom </div>
-        <div class="col-sm-2 " >Specialité</div>
-        <div class="col-sm-2 " >Numero Secretariat</div>
-        <div class="col-sm-3 " >Lieu de Consultation</div>
+        <div class="col-sm-2 " > {{praticien.nom}} </div>
+        <div class="col-sm-2 " >{{praticien.prenom}}</div>
+        <div class="col-sm-2 " >{{praticien.specialitePrincipale}}</div>
+        <div class="col-sm-3 " >{{praticien.specialiteSecondaire}}</div>
         <div class="col-sm-3 " ><button type="button" class="btn btn-info" >Prendre Rdv</button></div>
       </div>
 
