@@ -1,0 +1,28 @@
+<div class="column ">
+  <div class="row justify-content-center align-items-center mt-4">
+    <div class="column" style="width: 8%;"></div>
+    <div class="column" style="width: 30%;">
+      <img src="assets/images/logo.png" class="rounded-circle img-fluid " alt="Responsive image"
+           style="width: 60%;"/>
+    </div>
+    <div class="column " style="width: 45%; text-align: center; align: middle;">
+      <h1 class="mb-4 mt-2 ">Bienvenue dans votre espace Patient</h1>
+    </div>
+    <div class="column" style="width: 10%;"></div>
+  </div>
+</div>
+
+
+<div class="row justify-content-center align-items-center mt-5 mx-4 border">
+  <button [routerLink]="'mes-donnees-personnelles'"class="btn column border mr-5 mt-3 mb-3 pt-3 pb-3 btn-success" type="button"  style="width:25%; text-align: center;" >
+    <h4 class="mt-2">Accèder et Modifier <br> mes données professionnelles</h4>
+  </button>
+  <button [routerLink]="'mes-rdv-passes'" class="btn column border ml-3 mr-2 mt-3 mb-3 pt-3 pb-3 btn-info" type="button" style="width:30%; text-align: center;">
+    <h4 class="mt-2">Accéder et Modifier <br> mes Rendez-vous  <br>passés</h4>
+  </button>
+  <button [routerLink]="'mes-rdv-futurs'" class="btn column border ml-5 mt-3 mb-3 pt-3 pb-3 btn-danger" type="button" style="width:25%; text-align: center;">
+    <h4 class="mt-2">Accéder et Modifier  <br> mes prochains Rendez-vous</h4>
+  </button>
+</div>
+
+<br><br><br>

@@ -20,8 +20,9 @@
       <input class="form-control" style="width: 60%" type="text" placeholder="Rechercher un médécin par son nom ou sa spécialité" aria-label="Search" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" >
       <input class="form-control" style="width: 5%" type="text" placeholder="Sa localisation" aria-label="Search" [(ngModel)]="ville" [ngModelOptions]="{standalone: true}" >
       <div class="input-group-append">
-         <span class="input-group-text bg-info" id="basic-text1"><div class="btn-group" style="margin-left: 30px">
-            <a class="fas fa-search"  [routerLink]="['/praticien']" [queryParams]="{ nom: nom,ville: ville }"  queryParamsHandling="merge"></a>
+         <span class="input-group-text bg-info" id="basic-text1">
+           <div class="btn-group" style="margin-left: 10px">
+            <a class="fas fa-search" (click)="search()" ></a>
           </div>
          </span>
       </div>
@@ -48,8 +49,10 @@
 
 <div class="row justify-content-center mt-5">
   <div class="row bg-info text-white" style="width: 100%; text-align: center; align: middle;">
-    <h6 class="mb-3 mt-3 mr-5 pl-5" style="width: 100%; text-align: center; align: middle;">Vous êtes un professionnel de santé ? Retrouvez votre espace dédié ici
-      <i class="fas fa-angle-double-right ml-2" aria-hidden="true" style="color: white"></i>
+    <h6 class="mb-3 mt-3 mr-5 pl-5" style="width: 100%; text-align: center; align: middle;">
+      <a [routerLink]="'/se-connecter-pro'" >Vous êtes un professionnel de santé ? Retrouvez votre espace dédié ici
+        <i class="fas fa-angle-double-right ml-2" aria-hidden="true" style="color: white"></i>
+      </a>
     </h6>
   </div>
 </div>

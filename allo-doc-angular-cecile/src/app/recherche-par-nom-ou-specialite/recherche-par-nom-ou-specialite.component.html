@@ -1,20 +1,21 @@
 <div class="row mt-5 mb-3 pl-5 pt-2 pb-2 bg-info " style=" color:white">
-  <h4>Vous avez recherché : </h4>
+  <h4>Vous avez recherché un médecin {{this.nom}}</h4>
 </div>
+
 <div class="container-fluid scroll" style="min-height: 300px">
   <div class="card shadow my-5 mx-auto pr-4 pl-4">
     <div class="card-body">
-      <div class="row ml-3 mb-5" *ngFor="let praticien of praticienList" style="text-align: center; align: middle;">
-        <div class="col-sm-2 " >Dr {{praticien.nom}} {{praticien.prenom}}</div>
-        <div class="col-sm-4 " >{{praticien.specialitePrincipale}}   {{praticien.specialiteSecondaire}}</div>
+      <div class="row ml-3" *ngFor="let praticien of praticienList" style="text-align: center; align: middle;">
+        <div class="col-sm-3 " >Dr {{praticien.nom}} {{praticien.prenom}}</div>
+        <div class="col-sm-4 " >{{praticien.specialitePrincipale}} | {{praticien?.specialiteSecondaire}}</div>
         <div class="col-sm-1 " ><td>{{praticien.telephone}}</td></div>
-        <div class="col-sm-2 " >{{praticien.adresse.ville}}</div>
-        <div class="col-sm-3 " ><button [routerLink]="['/fiche-nom-praticien/'+ praticien.id]"type="button" class="btn btn-sm btn-info" >Prendre un rendez-vous</button></div>
-        <div></div>
+        <div class="col-sm-1 " >{{praticien.adresse.ville}}</div>
+        <div class="col-sm-3 " ><button type="button" class="btn btn-sm btn-info" >Prendre un rendez-vous</button></div>
       </div>
     </div>
   </div>
 </div>
+
 <div class="row" >
   <div class="column" style="width:5%"></div>
   <div class="column mt-4" style="width:43%" >

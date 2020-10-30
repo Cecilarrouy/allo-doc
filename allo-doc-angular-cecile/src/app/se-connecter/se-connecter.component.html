@@ -1,0 +1,62 @@
+<div>
+  <div class="row justify-content-center align-items-center mt-4">
+
+    <div class="column" style="width: 30%;">
+      <img src="assets/images/logo.png" class="rounded-circle img-fluid ml-2 " alt="Responsive image"
+           style="width: 80%;" >
+    </div>
+    <div class="column " style="width: 60%; text-align: center; align: middle;">
+      <h1 class="mb-4 mt-5">Connectez-vous à votre espace Patient</h1>
+      <h1 class="hr">Pour gérer vos rendez-vous</h1>
+      <div id="connect" class="column mt-5 ml-5">
+        <div class="column mt-5 ml-5">
+          <div class="form-inline mr-5 ml-5">
+            <div class="column ml-5" style="width: 80%"></div>
+            <div class="column ml-5" style="width: 25%; font-size: 22px;">
+              <label for="identifiant">Identifiant :</label>
+            </div>
+            <div class="column " style="width: 25%;">
+              <input type="text" class="form-control ml-5" id="identifiant" name="identifiant" [(ngModel)]="identifiant">
+            </div>
+          </div>
+        </div>
+
+        <div class="column mt-5 ml-5">
+          <div class="form-inline mr-5 ml-5">
+            <div class="column" style="width: 80%"></div>
+            <div class="column ml-5" style="width: 25%; font-size: 22px;">
+              <label for="mdp">Mot de passe :</label>
+            </div>
+            <div class="column" style="width: 25%;">
+              <input type="password" class="form-control ml-5" id="mdp" name="mdp" [(ngModel)]="mdp" >
+            </div>
+          </div>
+        </div>
+
+        <div class="column mt-5 mb-5 ml-5">
+          <div class="form-inline mr-5 ml-5">
+            <div class="column" style="width: 38%; font-size: 22px;">
+              <button type="submit" id="btnSubmit" class="btn btn-danger mt-2" style=" width: 80%;" (click)="creation()">CRÉER UN COMPTE</button>
+            </div>
+            <div class="column" style="width: 37%;">
+              <button type="submit" id="btnConnect" class="btn btn-info mt-2 ml-5" style=" width: 80%;" (click)="connexion()">SE CONNECTER</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+  <div class="row bg-info text-white" style="width: 100%; text-align: center; align: middle;">
+    <h6 class="mb-3 mt-3 mr-5 pl-5" style="width: 100%; text-align: center; align: middle;">
+      <a [routerLink]="'/se-connecter-pro'" >Vous êtes un professionnel de santé ? Retrouvez votre espace dédié ici
+        <i class="fas fa-angle-double-right ml-2" aria-hidden="true" style="color: white"></i>
+      </a>
+    </h6>
+  </div>
+</div>
+
