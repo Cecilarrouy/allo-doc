@@ -19,16 +19,16 @@ export class PraticienComponent implements OnInit {
 
   constructor(private praticienService: PraticienService, private route: ActivatedRoute, private commonService: CommonService) {
     this.route.queryParams.subscribe(params => {
-      /*if (params.nom != null && params.lieu == null) {*/
-      console.log(params.nom);
-        this.praticienService.findAllByNomOuSpe(params.nom).subscribe(resp => this.praticienList = resp, error => console.log(error))
-     /* }
-      if (params.nom ==null && params.lieu !=null) {
+      if (params.nom != null && params.ville == null) {
+
+        this.praticienService.findAllByNomOuSpe(params.nom).subscribe(resp => this.praticienList = resp, error => console.log(error)), console.log(params.nom);
+     }
+      if (params.nom ==null && params.ville !=null) {
         this.praticienService.findAllByVille(params.ville).subscribe(resp => this.praticienList = resp, error => console.log(error));
       }
       else {
         this.praticienService.findAllByNomOuSpeOuVille(params.nom,params.ville).subscribe(resp => this.praticienList = resp, error => console.log(error));
-      }*/
+      }
     });
 
   }

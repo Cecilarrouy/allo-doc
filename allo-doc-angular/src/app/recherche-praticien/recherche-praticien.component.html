@@ -20,7 +20,7 @@
       <input class="form-control" style="width: 5%" type="text" placeholder="Sa localisation" aria-label="Search" [(ngModel)]="ville" [ngModelOptions]="{standalone: true}" >
       <div class="input-group-append">
          <span class="input-group-text bg-info" id="basic-text1"><div class="btn-group" style="margin-left: 30px">
-            <a class="fas fa-search"  [routerLink]="['/praticien']" [queryParams]="{ nom: 'nom',ville: 'ville' }"  queryParamsHandling="merge"><i class="fas fa-info"></i></a>
+            <a class="fas fa-search"  [routerLink]="['/praticien']" [queryParams]="{ nom: nom,ville: ville }"  queryParamsHandling="merge"><i class="fas fa-info"></i></a>
           </div>
          </span>
       </div>

@@ -34,15 +34,15 @@ export class PraticienService {
   }
 
   findAllByNomOuSpe(nom): Observable<Array<Praticien>>{
-    return this.http.get<Array<Praticien>>('http://localhost:8080/praticien/par-nom-ou-spe/' + nom)
+    return this.http.get<Array<Praticien>>('http://localhost:8080/praticien/recherche-par-nom-ou-specialite/' + nom)
   }
 
   findAllByVille (ville): Observable<Array<Praticien>>{
-    return this.http.get<Array<Praticien>>('http://localhost:8080/praticien/par-ville/' + ville)
+    return this.http.get<Array<Praticien>>('http://localhost:8080/praticien/recherche-par-ville/' + ville)
   }
 
   findAllByNomOuSpeOuVille(nom, ville): Observable<Array<Praticien>>{
-    return this.http.get<Array<Praticien>>('http://localhost:8080/praticien/par-nom-ou-spe-ou-ville/' + nom +'|' + ville)
+    return this.http.get<Array<Praticien>>('http://localhost:8080/praticien/recherche-multi-criteres/' + nom +'/' + ville)
   }
 
 

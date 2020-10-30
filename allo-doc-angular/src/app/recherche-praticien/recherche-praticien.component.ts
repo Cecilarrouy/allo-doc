@@ -1,5 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Praticien} from "../model/praticien";
+import {HttpClient} from "@angular/common/http";
+import {PraticienService} from "../praticien/praticien.service";
+import {RecherchePraticienService} from "./recherche-praticien.service";
+import {Router} from "@angular/router";
 
 
 @Component({
