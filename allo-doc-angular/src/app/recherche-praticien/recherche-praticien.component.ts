@@ -14,25 +14,28 @@ export class RecherchePraticienComponent implements OnInit {
 
   nom: string;
   ville: string;
-  nomReset : string;
+  nomReset: string;
   villeReset: string;
   url: string;
+  myForm: string;
   praticienList: Array<Praticien> = new Array<Praticien>();
-  civilites: Array<String> = new Array<string>();
+  civilites: Array<string> = new Array<string>();
 
   constructor(private http: HttpClient, private praticienService: PraticienService, private recherchePraticienService: RecherchePraticienService, private router: Router) {
-    this.praticienService.findAllByNomOuSpe(this.nom).subscribe(resp => this.praticienList = resp, error => console.log(error))
+    this.praticienService.findAllByNomOuSpe(this.nom).subscribe(resp => this.praticienList = resp, error => console.log(error));
   }
 
   ngOnInit(): void {
-
-  }
-
-  search() {
     this.nomReset = '';
     this.villeReset = '';
+  }
+
+
+  search() {
     this.nomReset = this.nom;
     this.villeReset = this.ville;
+
+
     console.log(this.nom);
     console.log(this.ville);
 

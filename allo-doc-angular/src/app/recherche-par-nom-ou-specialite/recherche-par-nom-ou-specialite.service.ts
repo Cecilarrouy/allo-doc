@@ -17,10 +17,10 @@ export class RecherchePraticienNomSpeService {
   load() {
     this.http.get<Array<Praticien>>("http://localhost:8080/praticien").subscribe(resp => {
       this.praticiens = resp;
-    }, error => console.log(error))
+    }, error => console.log(error));
   }
 
   findAllBySpecialiteOuNom(nom): Observable<Array<Praticien>>{
-    return this.http.get<Array<Praticien>>('http://localhost:8080/praticien/recherche-par-nom-ou-specialite/' + nom)
+    return this.http.get<Array<Praticien>>('http://localhost:8080/praticien/recherche-par-nom-ou-specialite/' + nom);
   }
 }

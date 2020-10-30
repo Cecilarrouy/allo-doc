@@ -12,12 +12,14 @@ import {RechercheParVilleService} from './recherche-par-ville.service';
 })
 export class RechercheParVilleComponent implements OnInit {
 
+  ville: string;
   praticienList: Array<Praticien> = new Array<Praticien>();
   civilites: Array<string> = new Array<string>();
 
 
   constructor(private praticienService: PraticienService, private route: ActivatedRoute, private commonService: CommonService, private villeService: RechercheParVilleService) {
     this.route.params.subscribe(params => {
+      this.ville = params.ville;
       this.villeService.findAllByVille(params.ville).subscribe(resp => this.praticienList = resp, error => console.log(error)); });
   }
 

@@ -22,7 +22,6 @@ export class RechercheParNomOuSpecialiteComponent implements OnInit {
   }
 
 
-
   ngOnInit(): void {
     this.commonService.findAllCivilites().subscribe(resp => this.civilites = resp, err => console.log(err));
   }

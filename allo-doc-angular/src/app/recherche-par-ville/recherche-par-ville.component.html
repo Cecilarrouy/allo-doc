@@ -1,42 +1,30 @@
-<p>recherche-par-ville works!</p>
+<div class="row mt-5 mb-3 pl-5 pt-2 pb-2 bg-info " style=" color:white">
+  <h4>Vous avez recherché un médecin à {{this.ville}}</h4>
+</div>
 
-<div class="container-fluid scroll">
-  <table>
-    <thead>
-    <tr>
-      <th>id</th>
-      <th>version</th>
-      <th>nom</th>
-      <th>prenom</th>
-      <th>Spécialité 1</th>
-      <th>Spécialité 2</th>
-      <th>Ville</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let praticien of praticienList">
-      <td>{{praticien.id}}</td>
-      <td>{{praticien.version}}</td>
-      <td>{{praticien.nom}}</td>
-      <td>{{praticien.prenom}}</td>
-      <td>{{praticien.specialitePrincipale}}</td>
-      <td>{{praticien.specialiteSecondaire}}</td>
-      <td>{{praticien.adresse.ville}}</td>
-
-    </tr>
-    </tbody>
-  </table>
+<div class="container-fluid scroll" style="min-height: 300px">
   <div class="card shadow my-5 mx-auto pr-4 pl-4">
-
     <div class="card-body">
-      <div class="row ml-3 py-4">
-        <div class="col-sm-2 " > Nom Prenom </div>
-        <div class="col-sm-2 " >Specialité</div>
-        <div class="col-sm-2 " >Numero Secretariat</div>
-        <div class="col-sm-3 " >Lieu de Consultation</div>
-        <div class="col-sm-3 " ><button type="button" class="btn btn-info" >Prendre Rdv</button></div>
+      <div class="row ml-3" *ngFor="let praticien of praticienList" style="text-align: center; align: middle;">
+          <div class="col-sm-3 " >Dr {{praticien.nom}} {{praticien.prenom}}</div>
+          <div class="col-sm-4 " >{{praticien.specialitePrincipale}} | {{praticien?.specialiteSecondaire}}</div>
+          <div class="col-sm-1 " ><td>{{praticien.telephone}}</td></div>
+          <div class="col-sm-1 " >{{praticien.adresse.ville}}</div>
+          <div class="col-sm-3 " ><button type="button" class="btn btn-sm btn-info" >Prendre un rendez-vous</button></div>
       </div>
-
-
     </div>
   </div>
+</div>
+
+<div class="row" >
+  <div class="column" style="width:5%"></div>
+  <div class="column mt-4" style="width:43%" >
+    <div class="form-inline mr-5">
+      <div class="column">
+        <button [routerLink]="''" type="submit" id="btnRetour" class="btn mt-2 mr-2 ml-4 text-dark" style=" width: 100%; font-family: Cambria; font-size:18px; font-style: italic; font-weight: bold">
+          <i class="fas fa-angle-left mx-3"></i>Revenir à la recherche
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
