@@ -61,6 +61,7 @@ class MonRdvApplicationTests {
 	void contextLoads() throws ParseException {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdfhm = new SimpleDateFormat ("dd/MM/yyyy, h:mm");
 			
 		//Admin
 		Administrateur admin = new Administrateur(); 
@@ -397,14 +398,16 @@ class MonRdvApplicationTests {
 		
 		//Creneaux 
 		
-		CreneauHoraire creneau1 = new CreneauHoraire(sdf.parse("10/03/2020"));
-		CreneauHoraire creneau2 = new CreneauHoraire(sdf.parse("11/03/2020"));
-		CreneauHoraire creneau3 = new CreneauHoraire(sdf.parse("12/03/2020"));
-		
+		CreneauHoraire creneau1 = new CreneauHoraire(sdfhm.parse("02/11/2020, 9:00"));
 		creneau1 = creneauRepo.save(creneau1);
+		
+		CreneauHoraire creneau2 = new CreneauHoraire(sdfhm.parse("02/11/2020, 14:15"));
 		creneau2 = creneauRepo.save(creneau2);
+		
+		CreneauHoraire creneau3 = new CreneauHoraire(sdfhm.parse("02/11/2020, 15:45"));
 		creneau3 = creneauRepo.save(creneau3);
-	
+		
+			
 		
 		//Motifs Consult
 		
@@ -473,10 +476,19 @@ class MonRdvApplicationTests {
 		
 		//_______________________________________
 		
+		rdv2.setPatient(brice);
+		rdv2.setPraticien(doc);
+		rdv2.setMotifsConsultations(motif1);
+		rdv2 = rdvRepo.save(rdv2);
+		
+		//_______________________________________
+		
 		rdv3.setPatient(kevin);
 		rdv3.setPraticien(doc);
 		rdv3.setMotifsConsultations(motif1);
 		rdv3 = rdvRepo.save(rdv3);
+		
+		//_______________________________________
 		
 		rdv4.setPatient(cecile);
 		rdv4.setPraticien(doc);
@@ -504,6 +516,11 @@ class MonRdvApplicationTests {
 		creneau1.setLieu(cabinetDoc);
 		creneau1.setRdv(rdv1);
 		creneau1 = creneauRepo.save(creneau1);
+		
+		creneau2.setPraticien(doc);
+		creneau2.setLieu(cabinetDoc);
+		creneau2.setRdv(rdv2);
+		creneau2 = creneauRepo.save(creneau2);
 		
 				
 		

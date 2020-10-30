@@ -20,6 +20,7 @@ import {RechercheParVilleComponent} from './recherche-par-ville/recherche-par-vi
 import {RechercheMultiCriteresComponent} from './recherche-multi-criteres/recherche-multi-criteres.component';
 import {CreationProComponent} from './creation-pro/creation-pro.component';
 import {SeConnecterProComponent} from './se-connecter-pro/se-connecter-pro.component';
+import {CreationPersoComponent} from './creation-perso/creation-perso.component';
 
 
 const routes: Routes = [
@@ -44,7 +45,7 @@ const routes: Routes = [
   {path: 'se-connecter-pro', component: SeConnecterProComponent},
   {path: 'creation-pro', component: CreationProComponent},
   {path: 'fiche-nom-praticiens/:id', component: FicheNomPraticienComponent},
-
+  {path: 'creation-perso', component: CreationPersoComponent},
 ];
 
 @NgModule({
