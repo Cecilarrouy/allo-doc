@@ -10,7 +10,7 @@
           <div class="col-sm-4 " >{{praticien.specialitePrincipale}}   {{praticien.specialiteSecondaire}}</div>
           <div class="col-sm-1 " ><td>{{praticien.telephone}}</td></div>
           <div class="col-sm-2 " >{{praticien.adresse.ville}}</div>
-          <div class="col-sm-3 " ><button type="button" class="btn btn-sm btn-info" >Prendre un rendez-vous</button></div>
+          <div class="col-sm-3 " ><button [routerLink]="['/fiche-nom-praticiens/'+ praticien.id] "type="button" class="btn btn-sm btn-info" >Prendre un rendez-vous</button></div>
           <div></div>
       </div>
     </div>

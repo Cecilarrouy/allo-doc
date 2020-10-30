@@ -13,7 +13,7 @@ import {PrendreRdvComponent} from './prendre-rdv/prendre-rdv.component';
 import {RecherchePraticienComponent} from "./recherche-praticien/recherche-praticien.component";
 import {PraticienComponent} from "./praticien/praticien.component";
 import {SeConnecterComponent} from "./se-connecter/se-connecter.component";
-import {FicheNomPraticienComponent} from "./fiche-nom-praticien/fiche-nom-praticien.component";
+import {FicheNomPraticienComponent} from "./fiche-nom-praticiens/fiche-nom-praticien.component";
 import {PlanningComponent} from './planning/planning.component';
 import {RechercheParNomOuSpecialiteComponent} from './recherche-par-nom-ou-specialite/recherche-par-nom-ou-specialite.component';
 import {RechercheParVilleComponent} from './recherche-par-ville/recherche-par-ville.component';
@@ -27,7 +27,6 @@ const routes: Routes = [
   {path: 'dr-nom-prenom', component: DrNomPrenomComponent},
   {path: 'espace-patient', component: EspacePatientComponent},
   {path: 'espace-professionnel', component: EspaceProfessionnelComponent},
-  {path: 'fiche-nom-praticien', component: FicheNomPraticienComponent},
   {path: 'informations', component: InformationsComponent},
   {path: 'espace-professionnel/lieux-et-creneau', component: LieuxEtCreneauComponent},
   {path: 'espace-professionnel/mes-donnees-personnelles', component: MesDonneesPersonnellesComponent},
@@ -44,6 +43,8 @@ const routes: Routes = [
   {path: 'se-connecter', component: SeConnecterComponent},
   {path: 'se-connecter-pro', component: SeConnecterProComponent},
   {path: 'creation-pro', component: CreationProComponent},
+  {path: 'fiche-nom-praticiens/:id', component: FicheNomPraticienComponent},
+
 ];
 
 @NgModule({

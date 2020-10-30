@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RecherchePraticienComponent } from './recherche-praticien/recherche-praticien.component';
 import { PraticienComponent } from './praticien/praticien.component';
-import { FicheNomPraticienComponent } from './fiche-nom-praticien/fiche-nom-praticien.component';
+import { FicheNomPraticienComponent } from './fiche-nom-praticiens/fiche-nom-praticien.component';
 import { PrendreRdvComponent } from './prendre-rdv/prendre-rdv.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { SeConnecterComponent } from './se-connecter/se-connecter.component';
